@@ -1,5 +1,5 @@
 import React from "react";
-import {Product} from "../../products/MockProductsService";
+import {Product} from "@shopstory-examples/shared/products/MockProductsService";
 import Image from 'next/image'
 
 export const ProductCard : React.FC<{ product: Product, hasOverlay: boolean }> = ({ product, hasOverlay }) => {

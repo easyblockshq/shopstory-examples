@@ -1,5 +1,5 @@
 import React from "react";
-import sharedStyles from "../../../styles/shared.module.css";
+import sharedStyles from "../shared.module.css";
 
 export const Footer : React.FC = () => {
   return <div style={{padding: "16px 0", borderTop: "1px dashed black", minHeight: "200px"}}>

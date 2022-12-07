@@ -1,18 +1,7 @@
 import { Config } from "@shopstory/core";
-import { contentfulPlugin } from "@shopstory/core/contentful";
 import { MockProductsService } from "../products/MockProductsService";
 
-export const shopstoryConfig: Config = {
-  plugins: [
-    contentfulPlugin({
-      space: process.env.GATSBY_PUBLIC_CONTENTFUL_SPACE!,
-      environment: process.env.GATSBY_PUBLIC_CONTENTFUL_ENVIRONMENT ?? "master",
-      accessToken: process.env.GATSBY_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-      previewAccessToken:
-        process.env.GATSBY_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
-    }),
-  ],
-
+export const shopstoryBaseConfig: Config = {
   fonts: [
     {
       id: "body",

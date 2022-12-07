@@ -1,8 +1,11 @@
 import { ShopstoryProvider, ImageProps, ShopstoryLink } from "@shopstory/core/react";
-import {Button} from "../components/Button/Button";
+
+import {Button} from "../../../shared/components/Button/Button";
+import { CustomComponent } from "../../../shared/components/CustomComponent/CustomComponent";
+import { ProductCard } from "../../../shared/components/ProductCard/ProductCard";
+import { AlertAction } from "../../../shared/actions/AlertAction";
+
 import Link from "next/link";
-import { CustomComponent } from "../components/CustomComponent/CustomComponent";
-import { ProductCard } from "../components/ProductCard/ProductCard";
 import NextImage from "next/image";
 
 const NextLink : ShopstoryLink = ({ Component, componentProps, values }) => {
@@ -11,10 +14,6 @@ const NextLink : ShopstoryLink = ({ Component, componentProps, values }) => {
       <Component {...componentProps} />
     </Link>
   )
-}
-
-const AlertAction = (props: any) => {
-  alert("Alert message: " + props.text);
 }
 
 const Image : React.FC<ImageProps> = (props) => {

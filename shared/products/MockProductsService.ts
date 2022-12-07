@@ -1,4 +1,4 @@
-import products from "../data/products.json";
+import products from "./products.json";
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
