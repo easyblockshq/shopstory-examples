@@ -1,0 +1,34 @@
+{
+  "name": "gatsby-4",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example of integrating Shopstory with Gatsby v4",
+  "author": "Shopstory z o.o.",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shopstory/core": "0.9.0-docs.10",
+    "gatsby": "4.24.8",
+    "gatsby-plugin-image": "2.24.0",
+    "gatsby-source-contentful": "7.22.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.11",
+    "dotenv": "16.0.3",
+    "typescript": "4.9.3",
+    "typescript-plugin-css-modules": "4.1.1"
+  }
+}
