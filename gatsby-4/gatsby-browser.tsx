@@ -8,7 +8,7 @@ export function wrapPageElement({
   element,
   props,
 }: WrapPageElementBrowserArgs) {
-  if (props.location.pathname === "/shopstory-canvas") {
+  if (props.location.pathname.includes("shopstory-canvas")) {
     return element;
   }
 
