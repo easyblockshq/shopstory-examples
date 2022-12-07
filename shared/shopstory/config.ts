@@ -167,7 +167,7 @@ export const shopstoryConfig: Config = {
   ],
   links: [
     {
-      id: "GatsbyLink",
+      id: "InternalLink",
       label: "Internal link",
       schema: [
         {

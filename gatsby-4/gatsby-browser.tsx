@@ -15,7 +15,7 @@ export function wrapPageElement({
   return (
     <Fragment>
       <Header />
-      {element}
+      <div style={{ minHeight: "100vh" }}>{element}</div>
       <Footer />
     </Fragment>
   );

@@ -7,15 +7,15 @@ export async function createPages({
   actions: { createPage, createRedirect },
   graphql,
 }: CreatePagesArgs) {
-  const shopstoryBlocksQueryResult = await graphql<{
-    shopstoryBlocks: Queries.ContentfulShopstoryBlockConnection;
+  const shopstoryContentQueryResult = await graphql<{
+    shopstoryContent: Queries.ContentfulShopstoryBlockConnection;
   }>(`
     {
-      shopstoryBlocks: allContentfulShopstoryBlock {
+      shopstoryContent: allContentfulShopstoryBlock {
         edges {
           node {
             id
-            config {
+            content {
               internal {
                 content
               }
@@ -27,7 +27,7 @@ export async function createPages({
     }
   `);
 
-  if (!shopstoryBlocksQueryResult.data) {
+  if (!shopstoryContentQueryResult.data) {
     return;
   }
 
@@ -38,20 +38,21 @@ export async function createPages({
     },
   });
 
-  for (const shopstoryBlock of shopstoryBlocksQueryResult.data.shopstoryBlocks
-    .edges) {
-    if (shopstoryBlock.node.config?.internal.content) {
+  for (const shopstoryContentEdge of shopstoryContentQueryResult.data
+    .shopstoryContent.edges) {
+    const shopstoryContent =
+      shopstoryContentEdge.node.content?.internal.content;
+
+    if (shopstoryContent) {
       try {
-        const content = shopstoryClient.add(
-          JSON.parse(shopstoryBlock.node.config.internal.content)
-        );
+        const content = shopstoryClient.add(JSON.parse(shopstoryContent));
         const meta = await shopstoryClient.fetch();
 
         createPage({
           component: path.resolve(
             "./src/templates/ShopstoryBlockPageTemplate.tsx"
           ),
-          path: `/shopstory-block/${shopstoryBlock.node.contentful_id}`,
+          path: `/shopstory-block/${shopstoryContentEdge.node.contentful_id}`,
           context: {
             content,
             meta,
@@ -60,13 +61,13 @@ export async function createPages({
       } catch {
         if (process.env.NODE_ENV === "production") {
           createRedirect({
-            fromPath: `/shopstory-block/${shopstoryBlock.node.contentful_id}`,
+            fromPath: `/shopstory-block/${shopstoryContentEdge.node.contentful_id}`,
             toPath: "/404",
           });
         }
 
         console.error(
-          `Creating page for ShopstoryBlock entry with id ${shopstoryBlock.node.contentful_id} failed`
+          `Creating page for ShopstoryBlock entry with id ${shopstoryContentEdge.node.contentful_id} failed`
         );
       }
     }
