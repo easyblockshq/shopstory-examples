@@ -1,6 +1,7 @@
 import { shopstoryGetStyleTag } from "@shopstory/core/react";
 import { PreRenderHTMLArgs } from "gatsby";
 import { cloneElement } from "react";
+import { wrapPageElement } from "./gatsby-browser";
 
 export function onPreRenderHTML({
   getHeadComponents,
@@ -17,3 +18,5 @@ export function onPreRenderHTML({
 
   replaceHeadComponents(headComponents);
 }
+
+export { wrapPageElement };
