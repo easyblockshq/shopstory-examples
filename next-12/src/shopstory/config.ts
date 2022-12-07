@@ -1,17 +1,14 @@
 import { Config } from "@shopstory/core";
 import { contentfulPlugin } from "@shopstory/core/contentful";
-import { MockProductsService } from "../products/MockProductsService";
+import {MockProductsService} from "../products/MockProductsService";
 
-export const shopstoryConfig: Config = {
-  plugins: [
-    contentfulPlugin({
-      space: process.env.GATSBY_PUBLIC_CONTENTFUL_SPACE!,
-      environment: process.env.GATSBY_PUBLIC_CONTENTFUL_ENVIRONMENT ?? "master",
-      accessToken: process.env.GATSBY_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-      previewAccessToken:
-        process.env.GATSBY_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
-    }),
-  ],
+export const shopstoryConfig : Config = {
+  plugins: [contentfulPlugin({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
+    environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT ?? 'master',
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+    previewAccessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!
+  })],
 
   fonts: [
     {
@@ -20,11 +17,11 @@ export const shopstoryConfig: Config = {
       value: {
         fontSize: 20,
         lineHeight: 1.4,
-        fontFamily: "sans-serif",
+        fontFamily: 'sans-serif',
         "@xs": {
-          fontSize: 18,
-        },
-      },
+          fontSize: 18
+        }
+      }
     },
     {
       id: "body-small",
@@ -32,8 +29,8 @@ export const shopstoryConfig: Config = {
       value: {
         fontSize: 15,
         lineHeight: 1.4,
-        fontFamily: "sans-serif",
-      },
+        fontFamily: 'sans-serif',
+      }
     },
     {
       id: "heading-large",
@@ -42,11 +39,11 @@ export const shopstoryConfig: Config = {
         fontSize: 48,
         lineHeight: 1.2,
         fontWeight: 700,
-        fontFamily: "sans-serif",
-        "@sm": {
-          fontSize: 36, // responsiveness is easy
-        },
-      },
+        fontFamily: 'sans-serif',
+        '@sm': {
+          fontSize: 36 // responsiveness is easy
+        }
+      }
     },
     {
       id: "heading-medium",
@@ -55,11 +52,11 @@ export const shopstoryConfig: Config = {
         fontSize: 36,
         lineHeight: 1.2,
         fontWeight: 700,
-        fontFamily: "sans-serif",
-        "@sm": {
-          fontSize: 24, // responsiveness is easy
-        },
-      },
+        fontFamily: 'sans-serif',
+        '@sm': {
+          fontSize: 24 // responsiveness is easy
+        }
+      }
     },
     {
       id: "heading-small",
@@ -68,26 +65,26 @@ export const shopstoryConfig: Config = {
         fontSize: 24,
         lineHeight: 1.2,
         fontWeight: 700,
-        fontFamily: "sans-serif",
-      },
-    },
+        fontFamily: 'sans-serif',
+      }
+    }
   ],
   colors: [
     {
       id: "green",
       label: "Green",
-      value: "#83d1c4",
+      value: "#83d1c4"
     },
     {
       id: "purple",
       label: "Purple",
-      value: "#78517c",
+      value: "#78517c"
     },
     {
       id: "orange",
       label: "Orange",
-      value: "#f17950",
-    },
+      value: "#f17950"
+    }
   ],
   space: [
     {
@@ -97,22 +94,22 @@ export const shopstoryConfig: Config = {
         "@2xl": 96,
         "@xl": 64,
         "@lg": 40,
-        "@xs": 36,
-      },
+        "@xs": 36
+      }
     },
     {
       id: "containerMargin.default",
       value: {
         "@lg": "5vw",
-        "@xs": 24,
-      },
-    },
+        "@xs": 24
+      }
+    }
   ],
   containerWidths: [
     {
       id: "small",
-      value: 800,
-    },
+      value: 800
+    }
   ],
   components: [
     {
@@ -123,14 +120,16 @@ export const shopstoryConfig: Config = {
           prop: "color",
           label: "Color",
           type: "select",
-          options: ["white", "purple", "green"],
+          options: [
+            "white", "purple", "green"
+          ]
         },
         {
           prop: "noBorder",
           label: "Disable border",
-          type: "boolean",
+          type: "boolean"
         },
-      ],
+      ]
     },
     {
       id: "ProductCard",
@@ -140,16 +139,16 @@ export const shopstoryConfig: Config = {
         {
           prop: "hasOverlay",
           label: "Has overlay",
-          type: "boolean",
+          type: "boolean"
         },
         {
           prop: "product",
           label: "Product",
           type: "resource",
-          resourceType: "product",
-        },
-      ],
-    },
+          resourceType: "product"
+        }
+      ]
+    }
   ],
   buttons: [
     {
@@ -160,24 +159,26 @@ export const shopstoryConfig: Config = {
           prop: "variant",
           label: "Variant",
           type: "select",
-          options: ["dark", "light", "dark-outline", "light-outline"],
-        },
-      ],
-    },
+          options: [
+            "dark", "light", "dark-outline", "light-outline"
+          ]
+        }
+      ]
+    }
   ],
   links: [
     {
-      id: "InternalLink",
-      label: "Internal link",
+      id: 'NextLink',
+      label: 'Internal link',
       schema: [
         {
-          prop: "pagePath",
-          label: "Path",
-          type: "string",
-          defaultValue: "/",
-        },
-      ],
-    },
+          prop: 'pagePath',
+          label: 'Path',
+          type: 'string',
+          defaultValue: '/'
+        }
+      ]
+    }
   ],
   actions: [
     {
@@ -188,31 +189,31 @@ export const shopstoryConfig: Config = {
           prop: "text",
           label: "Text",
           type: "string",
-          defaultValue: "Hello",
-        },
-      ],
-    },
+          defaultValue: "Hello"
+        }
+      ]
+    }
   ],
   resourceTypes: {
     product: {
       fetch: async (resources) => {
-        const ids = resources.map((resource) => resource.id);
+        const ids = resources.map(resource => resource.id);
         const products = await MockProductsService.getProductsByIds(ids);
 
-        return resources.map((resource) => ({
+        return resources.map(resource => ({
           ...resource,
-          value: products.find((product) => product.id === resource.id),
-        }));
+          value: products.find(product => product.id === resource.id)
+        }))
       },
       widget: {
         type: "item-picker",
         getItems: async (query) => {
           const products = await MockProductsService.searchProducts(query);
-          return products.map((product) => ({
+          return products.map(product => ({
             id: product.id,
             title: product.title,
-            thumbnail: product.image,
-          }));
+            thumbnail: product.image
+          }))
         },
         getItemById: async (id) => {
           const product = await MockProductsService.getProductById(id);
@@ -223,15 +224,15 @@ export const shopstoryConfig: Config = {
           return {
             id: product.id,
             title: product.title,
-            thumbnail: product.image,
-          };
-        },
-      },
-    },
+            thumbnail: product.image
+          }
+        }
+      }
+    }
   },
   devices: {
     sm: {
-      startsFrom: 520,
-    },
-  },
-};
+      startsFrom: 520
+    }
+  }
+}
