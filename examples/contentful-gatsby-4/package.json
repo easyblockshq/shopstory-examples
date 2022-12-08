@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "contentful": "^9.2.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "gatsby": "4.24.8",
