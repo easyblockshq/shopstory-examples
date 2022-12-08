@@ -1,31 +1,31 @@
-.Button {
-    all: unset;
-    box-sizing: border-box;
-    border-radius: 12px;
-    background: black;
-    color: white;
-    padding: 8px 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    min-height: 40px;
-    cursor: pointer;
+.wrapper {
+  all: unset;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: black;
+  color: white;
+  padding: 8px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  min-height: 40px;
+  cursor: pointer;
 }
 
-.Button--outline {
-    background: transparent;
-    border: 2px solid black;
-    color: black;
+.outline {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
 }
 
-.Button--light {
-    background: white;
-    color: black;
+.light {
+  background: white;
+  color: black;
 }
 
-.Button--light-outline {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
+.lightOutline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
 }

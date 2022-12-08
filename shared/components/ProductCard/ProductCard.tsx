@@ -1,6 +1,5 @@
 import React from "react";
 import { Product } from "../../products/MockProductsService";
-import Image from "next/image";
 
 export const ProductCard: React.FC<{
   product: Product;
@@ -15,16 +14,17 @@ export const ProductCard: React.FC<{
             background: hasOverlay ? "#f3f3f3" : "none",
           }}
         >
-          <Image
+          <img
             src={product.image}
             alt={product.title}
-            layout={"fill"}
             style={{
               position: "absolute",
               top: 0,
               left: 0,
               bottom: 0,
               right: 0,
+              display: "block",
+              maxWidth: "100%",
             }}
           />
         </div>

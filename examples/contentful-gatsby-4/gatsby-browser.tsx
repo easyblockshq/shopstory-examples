@@ -1,7 +1,7 @@
 import { WrapPageElementBrowserArgs } from "gatsby";
 import React, { Fragment } from "react";
-import { Footer } from "./src/components/Footer/Footer";
-import { Header } from "./src/components/Header/Header";
+import { Footer } from "shared/components/Footer/Footer";
+import { Header } from "shared/components/Header/Header";
 import "./src/styles/globals.css";
 
 export function wrapPageElement({

@@ -108,6 +108,6 @@
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "../shared/**/*"
+    "../../shared/css-modules.d.ts"
   ]
 }
