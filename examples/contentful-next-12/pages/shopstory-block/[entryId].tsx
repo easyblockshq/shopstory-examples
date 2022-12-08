@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import { RawContent, RenderableContent, Metadata } from "@shopstory/core";
+import { RenderableContent, Metadata } from "@shopstory/core";
 import { createClient, Entry } from 'contentful'
 import { ShopstoryClient } from "@shopstory/core/client";
 import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/core/react";
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<ShopstoryBlockPageProps, { entryId: 
     locale,
   });
 
-  const rawContent : RawContent | undefined = entry.fields.content;
+  const rawContent = entry.fields.content;
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, { locale, contentful: { preview } });
   const renderableContent = shopstoryClient.add(rawContent);
   const meta = await shopstoryClient.build();
