@@ -1,7 +1,7 @@
 import { ShopstoryClient } from "@shopstory/core/client";
-import type { CreatePagesArgs, CreateWebpackConfigArgs } from "gatsby";
+import type { CreatePagesArgs } from "gatsby";
 import path from "path";
-import { shopstoryConfig } from "../shared/shopstory/config";
+import { shopstoryBaseConfig } from "shared/shopstory/config";
 
 export async function createPages({
   actions: { createPage, createRedirect },
@@ -31,7 +31,7 @@ export async function createPages({
     return;
   }
 
-  const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
+  const shopstoryClient = new ShopstoryClient(shopstoryBaseConfig, {
     locale: "en-US",
     contentful: {
       preview: true,
@@ -72,12 +72,4 @@ export async function createPages({
       }
     }
   }
-}
-
-export function onCreateWebpackConfig({ actions }: CreateWebpackConfigArgs) {
-  actions.setWebpackConfig({
-    resolve: {
-      modules: ["node_modules", path.resolve(__dirname, "../shared")],
-    },
-  });
 }

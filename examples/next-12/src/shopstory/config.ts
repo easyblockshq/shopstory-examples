@@ -1,8 +1,8 @@
 import { Config } from "@shopstory/core";
 import { contentfulPlugin } from "@shopstory/core/contentful";
-import { shopstoryBaseConfig } from "../../../shared/shopstory/config";
+import { shopstoryBaseConfig } from "shared/shopstory/config";
 
-export const shopstoryConfig : Config = {
+export const shopstoryConfig: Config = {
   ...shopstoryBaseConfig,
   plugins: [
     contentfulPlugin({
@@ -13,4 +13,4 @@ export const shopstoryConfig : Config = {
         process.env.GATSBY_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
     }),
   ],
-}
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../../../shared/products/MockProductsService";
+import { Product } from "shared/products/MockProductsService";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { generateGatsbyImageData } from "../../shopstory/Provider";
 
