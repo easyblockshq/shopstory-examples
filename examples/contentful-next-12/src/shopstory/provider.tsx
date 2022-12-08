@@ -35,7 +35,7 @@ export const DemoShopstoryProvider: React.FC = ({ children }) => {
         Button,
       }}
       links={{
-        NextLink,
+        InternalLink: NextLink,
       }}
       actions={{
         AlertAction,
