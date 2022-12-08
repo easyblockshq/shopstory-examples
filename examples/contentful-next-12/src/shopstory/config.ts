@@ -1,6 +1,16 @@
 import { Config } from "@shopstory/core";
-import { shopstoryContentfulConfig } from "shared/shopstory/contentfulConfig";
+import { shopstoryBaseConfig } from "shared/shopstory/baseConfig";
+import {contentfulPlugin} from "@shopstory/core/contentful";
 
 export const shopstoryConfig: Config = {
-  ...shopstoryContentfulConfig,
+  ...shopstoryBaseConfig,
+  plugins: [
+    contentfulPlugin({
+      space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
+      environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT ?? "master",
+      accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
+      previewAccessToken:
+        process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
+    }),
+  ]
 };

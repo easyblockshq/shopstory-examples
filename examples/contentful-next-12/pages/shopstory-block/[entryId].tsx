@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import { RenderableContentPiece, Metadata } from "@shopstory/core";
+import { RawContent, RenderableContent, Metadata } from "@shopstory/core";
 import { createClient, Entry } from 'contentful'
 import { ShopstoryClient } from "@shopstory/core/client";
 import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/core/react";
@@ -7,14 +7,14 @@ import {shopstoryConfig} from "../../src/shopstory/config";
 import {DemoShopstoryProvider} from "../../src/shopstory/provider";
 
 type ShopstoryBlockPageProps = {
-  content: RenderableContentPiece
+  renderableContent: RenderableContent,
   meta: Metadata
 }
 
 const ShopstoryBlockPage: NextPage<ShopstoryBlockPageProps> = (props) => {
   return <DemoShopstoryProvider>
     <ShopstoryMetadataProvider meta={props.meta}>
-      <Shopstory content={props.content} />
+      <Shopstory content={props.renderableContent} />
     </ShopstoryMetadataProvider>
   </DemoShopstoryProvider>
 }
@@ -42,12 +42,13 @@ export const getStaticProps: GetStaticProps<ShopstoryBlockPageProps, { entryId: 
     locale,
   });
 
+  const rawContent : RawContent | undefined = entry.fields.content;
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, { locale, contentful: { preview } });
-  const content = shopstoryClient.add(entry.fields.content);
-  const meta = await shopstoryClient.fetch();
+  const renderableContent = shopstoryClient.add(rawContent);
+  const meta = await shopstoryClient.build();
 
   return {
-    props: { content, meta },
+    props: { renderableContent, meta },
     revalidate: 10
   }
 }
