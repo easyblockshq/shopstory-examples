@@ -1,12 +1,12 @@
 import { DemoShopstoryProvider } from "../shopstory/Provider";
 import { Canvas } from "@shopstory/core/react";
 import React from "react";
-import { shopstoryBaseConfig } from "shared/shopstory/config";
+import { shopstoryConfig } from "../shopstory/config";
 
 function ShopstoryCanvasPage() {
   return (
     <DemoShopstoryProvider>
-      <Canvas config={shopstoryBaseConfig} />
+      <Canvas config={shopstoryConfig} />
     </DemoShopstoryProvider>
   );
 }

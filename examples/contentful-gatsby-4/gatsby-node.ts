@@ -1,7 +1,7 @@
 import { ShopstoryClient } from "@shopstory/core/client";
 import type { CreatePagesArgs } from "gatsby";
 import path from "path";
-import { shopstoryBaseConfig } from "shared/shopstory/config";
+import { shopstoryConfig } from "./src/shopstory/config";
 
 export async function createPages({
   actions: { createPage, createRedirect },
@@ -31,7 +31,7 @@ export async function createPages({
     return;
   }
 
-  const shopstoryClient = new ShopstoryClient(shopstoryBaseConfig, {
+  const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: "en-US",
     contentful: {
       preview: true,
@@ -58,7 +58,9 @@ export async function createPages({
             meta,
           },
         });
-      } catch {
+      } catch (error) {
+        console.log(error);
+
         if (process.env.NODE_ENV === "production") {
           createRedirect({
             fromPath: `/shopstory-block/${shopstoryContentEdge.node.contentful_id}`,
