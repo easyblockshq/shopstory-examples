@@ -59,7 +59,8 @@ export async function createPages({
       if (shopstoryContent) {
         try {
           const content = shopstoryClient.add(JSON.parse(shopstoryContent));
-          const meta = await shopstoryClient.fetch();
+          const meta = await shopstoryClient.build();
+
           const pagePath = `/shopstory-block/${shopstoryContentEdge.node.contentful_id}`;
 
           createPage({
