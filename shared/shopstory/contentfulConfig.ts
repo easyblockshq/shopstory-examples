@@ -1,8 +1,8 @@
 import { Config } from "@shopstory/core";
-import { contentfulPlugin } from "@shopstory/core/contentful";
-import { shopstoryBaseConfig } from "shared/shopstory/config";
+import {contentfulPlugin} from "@shopstory/core/contentful";
+import { shopstoryBaseConfig } from "./baseConfig";
 
-export const shopstoryConfig: Config = {
+export const shopstoryContentfulConfig: Config = {
   ...shopstoryBaseConfig,
   plugins: [
     contentfulPlugin({
