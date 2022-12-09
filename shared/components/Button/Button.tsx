@@ -6,7 +6,7 @@ export type ButtonProps = {
 };
 
 export const Button: ShopstoryButton<ButtonProps> = (props) => {
-  const { as, variant, ...restProps } = props;
+  const { as, variant, label, ...restProps } = props;
 
   let extraClass = "";
   if (variant === "light") {
