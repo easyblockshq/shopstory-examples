@@ -14,6 +14,10 @@ function productPageProvider({
   renderBeforeContent,
 }: ProductPageProviderOptions): ComponentType<ProductPageProps> {
   return function ProductPage({ product }) {
+    if (!product) {
+      return null;
+    }
+
     return (
       <Fragment>
         {renderBeforeContent({ title: product.title })}
