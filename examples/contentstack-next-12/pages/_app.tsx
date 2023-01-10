@@ -7,6 +7,7 @@ import { Header } from "shared/components/common/Header/Header";
 import "shared/styles/globals.css";
 import "../public/fonts/style.css";
 import { contentstackParams } from "../src/contentstackParams";
+import "../styles/global.css";
 
 ContentstackLivePreview.init({
   enable: true,
