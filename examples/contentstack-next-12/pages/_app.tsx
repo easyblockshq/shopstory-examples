@@ -1,10 +1,11 @@
 import type { AppProps } from "next/app";
 // import { useEffect } from "react";
 // import { setAppElement } from "react-modal";
+import ContentstackLivePreview from "@contentstack/live-preview-utils";
 import { Footer } from "shared/components/common/Footer/Footer";
 import { Header } from "shared/components/common/Header/Header";
-import "../styles/globals.css";
-import ContentstackLivePreview from "@contentstack/live-preview-utils";
+import "shared/styles/globals.css";
+import "../public/fonts/style.css";
 import { contentstackParams } from "../src/contentstackParams";
 
 ContentstackLivePreview.init({
