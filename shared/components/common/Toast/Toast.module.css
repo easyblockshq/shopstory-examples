@@ -1,0 +1,38 @@
+.Toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  background-color: var(--color_grey_02);
+  color: var(--color_white_01);
+  border-radius: 4px;
+  @mixin font-body02;
+  padding: 10px 18px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeout 200ms;
+
+  &.active {
+    animation: fadein 250ms;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

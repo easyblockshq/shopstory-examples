@@ -1,0 +1,11 @@
+.wrapper {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
+  font-size: 40px;
+  min-height: 80vh;
+  @mixin font-heading04;
+  display: grid;
+  jusity-content: center;
+  align-items: center;
+}

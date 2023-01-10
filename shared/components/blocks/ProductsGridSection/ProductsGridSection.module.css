@@ -1,0 +1,22 @@
+.wrapper {
+  /*display: grid;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  /*min-height: 90vh;*/
+  @mixin container-standard;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  /*background-color: var(--color_beige_01)*/
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px;
+  position: relative;
+}
+
+.title {
+  @mixin font-heading01;
+  margin-bottom: 64px;
+}

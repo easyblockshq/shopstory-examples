@@ -5,14 +5,20 @@
     "shared"
   ],
   "dependencies": {
-    "@shopstory/core": "^0.9.0-rc.0",
+    "@shopstory/core": "0.9.0-rc.10",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/react": "17.0.52",
     "@types/react-dom": "17.0.18",
+    "@types/react-modal": "^3.13.1",
+    "postcss-custom-media": "8.0.2",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.0",
+    "postcss-preset-env": "^7.8.3",
     "typescript": "4.9.3",
     "typescript-plugin-css-modules": "4.1.1"
   }
