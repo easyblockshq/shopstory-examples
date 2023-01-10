@@ -1,0 +1,23 @@
+.ToggleButton {
+  @mixin font-heading03;
+  padding: 0 var(--size_07);
+  height: 44px;
+  background-color: inherit;
+  border-radius: 4px;
+  color: var(--color_white_01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid var(--color_white_01);
+  transition: color, border-color 0.2s;
+
+  &.inactive {
+    color: var(--color_grey_01);
+    border-color: var(--color_black_02);
+
+    &:hover {
+      border-color: var(--color_white_02);
+    }
+  }
+}

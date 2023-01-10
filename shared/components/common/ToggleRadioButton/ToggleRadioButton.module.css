@@ -1,0 +1,47 @@
+.radioButton {
+  @mixin font-heading03;
+  position: relative;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  transition: color 200ms;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--color_white_01);
+    transition: border-color 200ms;
+    margin-right: var(--size_06);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color_white_01);
+    left: 7px;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  &.inactive {
+    &:before {
+      border-color: var(--color_white_02);
+    }
+    &:after {
+      opacity: 0;
+    }
+
+    &:hover {
+      color: var(--color_grey_01);
+      &:before {
+        border-color: var(--color_grey_01);
+      }
+    }
+  }
+}

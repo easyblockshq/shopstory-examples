@@ -1,0 +1,6 @@
+.wrapper {
+  padding-top: var(--headerHeightMobile);
+  @media (--md) {
+    padding-top: var(--headerHeight);
+  }
+}

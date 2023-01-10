@@ -1,0 +1,51 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.content {
+  position: relative;
+  border: none;
+  max-width: 100%;
+  z-index: 999;
+}
+
+.contentPosition_center {
+  margin: auto;
+}
+
+.contentPosition_bottom {
+  margin: auto auto 0;
+}
+
+.contentPosition_right {
+  margin: auto 0 auto auto;
+  width: auto;
+}
+
+.contentPosition_left {
+  margin: auto auto auto 0;
+  width: auto;
+}
+
+.contentSize_stretch {
+  width: 100%;
+  height: 100%;
+}
+
+.contentSize_stretchx {
+  width: 100%;
+}
+
+.contentSize_stretchy {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

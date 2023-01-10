@@ -1,0 +1,122 @@
+/* Breakpoints */
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1024px);
+@custom-media --xl (min-width: 1280px);
+@custom-media --xxl (min-width: 1680px);
+
+:root {
+  /* Colors */
+  --color_black_01: #252525;
+  --color_black_02: #4f4f4f;
+  --color_black_03: #000000;
+  --color_black_04: rgba(0, 0, 0, 0.4);
+  --color_white_01: #f9f8f3;
+  --color_white_02: #bdbdbd;
+  --color_beige_01: #f1f0ea;
+  --color_grey_01: #a0a09d;
+  --color_grey_02: #4f4f4f;
+
+  /* Sizes */
+  --size_01: 1px;
+  --size_02: 2px;
+  --size_03: 4px;
+  --size_04: 6px;
+  --size_05: 8px;
+  --size_06: 12px;
+  --size_07: 16px;
+  --size_08: 24px;
+  --size_09: 32px;
+  --size_10: 48px;
+  --size_11: 64px;
+  --size_12: 96px;
+  --size_13: 128px;
+  --size_14: 160px;
+  --size_15: 220px;
+  --size_16: 280px;
+
+  /* Containers */
+  --container_01: 480px;
+  --container_02: 360px;
+
+  /* Others */
+  --headerHeight: 82px;
+  --headerHeightMobile: 60px;
+
+  --containerMargin: 24px;
+
+  @media (--sm) {
+    --containerMargin: 24px;
+  }
+  @media (--md) {
+    --containerMargin: 40px;
+  }
+  @media (--lg) {
+    --containerMargin: 60px;
+  }
+  @media (--xl) {
+    --containerMargin: 80px;
+  }
+  @media (--xxl) {
+    --containerMargin: 96px;
+  }
+}
+
+/* Typography */
+@define-mixin typography-national {
+  font-family: 'test-national-2';
+}
+
+@define-mixin typography-soehne-mono {
+  font-family: 'test-soehne-mono';
+}
+
+/* Fonts */
+@define-mixin font-body01 {
+  @mixin typography-soehne-mono;
+  font-size: 20px;
+}
+
+@define-mixin font-body02 {
+  @mixin typography-soehne-mono;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@define-mixin font-heading01 {
+  @mixin typography-national;
+  font-size: 21px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@define-mixin font-heading02 {
+  @mixin typography-national;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@define-mixin font-heading03 {
+  @mixin typography-national;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@define-mixin font-heading04 {
+  @mixin typography-national;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  /* TODO: @media (--md) doesn't work in this file. Why?? */
+  @media (min-width: 740px) {
+    font-size: 36px;
+  }
+}
+
+/* Containers */
+@define-mixin container-standard {
+  padding-left: var(--containerMargin);
+  padding-right: var(--containerMargin);
+}
