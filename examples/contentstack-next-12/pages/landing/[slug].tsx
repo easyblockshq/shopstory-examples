@@ -5,7 +5,8 @@ import {
   landingPageProvider,
   type LandingPageProps,
 } from "shared/components/pages/LandingPage";
-import { contentstackClient } from "../../src/contentstackClient";
+import { createContentstackClient } from "../../src/contentstackClient";
+import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
 
@@ -26,12 +27,13 @@ export const getStaticProps: GetStaticProps<
   LandingPageProps,
   { slug: string }
 > = async (context) => {
-  let { params, preview } = context;
+  let { params } = context;
 
   if (!params) {
     return { notFound: true };
   }
 
+  const contentstackClient = createContentstackClient(contentstackParams);
   const entry = await contentstackClient.fetchLandingPageEntryBySlug(
     params.slug
   );
@@ -42,9 +44,6 @@ export const getStaticProps: GetStaticProps<
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: "main",
-    contentstack: {
-      preview: true,
-    },
   });
 
   const content = shopstoryClient.add(entry.content);

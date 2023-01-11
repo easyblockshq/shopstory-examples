@@ -5,10 +5,10 @@ import {
   homePageProvider,
   type HomePageProps,
 } from "shared/components/pages/HomePage";
-import { contentstackClient } from "../src/contentstackClient";
+import { createContentstackClient } from "../src/contentstackClient";
+import { contentstackParams } from "../src/contentstackParams";
 import { shopstoryConfig } from "../src/shopstory/config";
 import { DemoShopstoryProvider } from "../src/shopstory/provider";
-import { Stack } from "../src/stack";
 import { isQueryLivePreviewQuery } from "../src/utils/isQueryLivePreviewQuery";
 
 const HomePage = homePageProvider({
@@ -25,11 +25,14 @@ export default HomePage;
 export const getServerSideProps: GetServerSideProps<HomePageProps> = async (
   context
 ) => {
-  if (isQueryLivePreviewQuery(context.query)) {
-    Stack.livePreviewQuery(context.query);
-  }
-
   try {
+    const contentstackClient = createContentstackClient({
+      ...contentstackParams,
+      livePreviewQuery: isQueryLivePreviewQuery(context.query)
+        ? context.query
+        : undefined,
+    });
+
     const homePageEntry = await contentstackClient.fetchHomePageEntry();
 
     const shopstoryClient = new ShopstoryClient(shopstoryConfig, {

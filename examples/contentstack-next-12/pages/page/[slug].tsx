@@ -6,7 +6,8 @@ import {
   type PageProps,
 } from "shared/components/pages/Page";
 import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
-import { contentstackClient } from "../../src/contentstackClient";
+import { createContentstackClient } from "../../src/contentstackClient";
+import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
 
@@ -34,6 +35,7 @@ export const getStaticProps: GetStaticProps<
     return { notFound: true };
   }
 
+  const contentstackClient = createContentstackClient(contentstackParams);
   const entry = await contentstackClient.fetchPageEntryBySlug(params.slug);
 
   if (!entry) {
@@ -93,9 +95,6 @@ export const getStaticProps: GetStaticProps<
       } else if (type === "shopstory_block") {
         const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
           locale: "main",
-          contentstack: {
-            preview: true,
-          },
         });
 
         const content = shopstoryClient.add(block.content);

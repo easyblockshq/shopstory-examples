@@ -1,5 +1,4 @@
-import { type Region } from "contentstack";
-import { Stack } from "./stack";
+import contentstack, { LivePreviewQuery, type Region } from "contentstack";
 
 type ContentstackClient = {
   fetchHomePageEntry(): Promise<any>;
@@ -17,59 +16,100 @@ export type ContentstackClientParams = {
   preview?: boolean;
 };
 
-const contentstackClient: ContentstackClient = {
-  async fetchCollectionPageEntryBySlug(slug) {
-    try {
-      const collectionPageEntry = await Stack.ContentType("collection_page")
+function createContentstackClient(
+  params: ContentstackClientParams & { livePreviewQuery?: LivePreviewQuery }
+): ContentstackClient {
+  const stack = contentstack.Stack({
+    region: params.region,
+    api_key: params.apiKey,
+    delivery_token: params.deliveryToken,
+    environment: params.environment,
+    live_preview: {
+      management_token: params.managementToken,
+      enable: true,
+      host:
+        params.region === "us"
+          ? "api.contentstack.io"
+          : `${params.region}-api.contentstack.com`,
+    },
+  });
+
+  // @ts-expect-error All these fields are private, so they're not present in typings, but transpiled JS have it.
+  stack.live_preview.live_preview = undefined;
+  // @ts-expect-error
+  stack.live_preview.content_type_uid = undefined;
+  // @ts-expect-error
+  stack.live_preview.entry_uid = undefined;
+
+  stack.setHost(
+    params.region === "us"
+      ? "cdn.contentstack.io"
+      : `${params.region}-cdn.contentstack.com`
+  );
+
+  if (params.livePreviewQuery) {
+    stack.livePreviewQuery(params.livePreviewQuery);
+  }
+
+  return {
+    async fetchCollectionPageEntryBySlug(slug) {
+      try {
+        const collectionPageEntry = await stack
+          .ContentType("collection_page")
+          .Query()
+          .where("url", `/${slug}`)
+          .toJSON()
+          .findOne();
+
+        return collectionPageEntry;
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+    },
+    async fetchLandingPageEntryBySlug(slug) {
+      try {
+        const landingPageEntry = await stack
+          .ContentType("landing_page")
+          .Query()
+          .where("url", `/${slug}`)
+
+          .toJSON()
+          .findOne();
+
+        return landingPageEntry;
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+    },
+    async fetchPageEntryBySlug(slug) {
+      try {
+        const pageEntry = await stack
+          .ContentType("page")
+          .Query()
+          .where("url", `/${slug}`)
+          .includeReference("blocks")
+          .addQuery("include_dimension", "true")
+          .toJSON()
+          .findOne();
+
+        return pageEntry;
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+    },
+    async fetchHomePageEntry() {
+      const homePageEntry = await stack
+        .ContentType("homepage")
         .Query()
-        .where("url", `/${slug}`)
         .toJSON()
         .findOne();
 
-      return collectionPageEntry;
-    } catch (error) {
-      console.error(error);
-      return;
-    }
-  },
-  async fetchLandingPageEntryBySlug(slug) {
-    try {
-      const landingPageEntry = await Stack.ContentType("landing_page")
-        .Query()
-        .where("url", `/${slug}`)
+      return homePageEntry;
+    },
+  };
+}
 
-        .toJSON()
-        .findOne();
-
-      return landingPageEntry;
-    } catch (error) {
-      console.error(error);
-      return;
-    }
-  },
-  async fetchPageEntryBySlug(slug) {
-    try {
-      const pageEntry = await Stack.ContentType("page")
-        .Query()
-        .where("url", `/${slug}`)
-        .includeReference("blocks")
-        .addQuery("include_dimension", "true")
-        .toJSON()
-        .findOne();
-
-      return pageEntry;
-    } catch (error) {
-      console.error(error);
-      return;
-    }
-  },
-  async fetchHomePageEntry() {
-    const homePageEntry = await Stack.ContentType("homepage").Entry(
-      "bltb22d3fe3206e3ba9"
-    );
-
-    return homePageEntry.toJSON().fetch();
-  },
-};
-
-export { contentstackClient };
+export { createContentstackClient };

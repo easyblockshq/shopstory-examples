@@ -8,7 +8,8 @@ import {
 import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
 import { filterCollection } from "shared/data/shopify/filterCollection";
 import { decomposeHandle } from "shared/utils/collectionsHandle";
-import { contentstackClient } from "../../src/contentstackClient";
+import { createContentstackClient } from "../../src/contentstackClient";
+import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
 
@@ -27,7 +28,6 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
   params,
-  preview,
 }) => {
   if (!params?.handle)
     throw new Error("Catch all accessed without given [handle]");
@@ -43,6 +43,7 @@ export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
     };
   }
 
+  const contentstackClient = createContentstackClient(contentstackParams);
   const collectionEntry =
     await contentstackClient.fetchCollectionPageEntryBySlug(handle);
   const shopifyCollectionHandle = collectionEntry?.collection_id ?? handle;
@@ -56,9 +57,6 @@ export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale: "main",
-    contentstack: {
-      preview: true,
-    },
   });
 
   const renderableContent = shopstoryClient.add(collectionEntry?.content, {
