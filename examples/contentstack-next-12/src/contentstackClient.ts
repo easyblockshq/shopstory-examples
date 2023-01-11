@@ -57,7 +57,7 @@ function createContentstackClient(
         const collectionPageEntry = await stack
           .ContentType("collection_page")
           .Query()
-          .where("url", `/${slug}`)
+          .where("url", `/category/${slug}`)
           .toJSON()
           .findOne();
 
@@ -72,7 +72,7 @@ function createContentstackClient(
         const landingPageEntry = await stack
           .ContentType("landing_page")
           .Query()
-          .where("url", `/${slug}`)
+          .where("url", `/landing/${slug}`)
 
           .toJSON()
           .findOne();
@@ -88,7 +88,7 @@ function createContentstackClient(
         const pageEntry = await stack
           .ContentType("page")
           .Query()
-          .where("url", `/${slug}`)
+          .where("url", `/page/${slug}`)
           .includeReference("blocks")
           .addQuery("include_dimension", "true")
           .toJSON()
