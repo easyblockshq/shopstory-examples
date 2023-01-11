@@ -1,4 +1,4 @@
-import contentstack, { LivePreviewQuery, type Region } from "contentstack";
+import contentstack, { type LivePreviewQuery, type Region } from "contentstack";
 
 type ContentstackClient = {
   fetchHomePageEntry(): Promise<any>;

@@ -10,8 +10,6 @@ import { contentstackParams } from "../src/contentstackParams";
 import "../styles/global.css";
 
 ContentstackLivePreview.init({
-  enable: true,
-  ssr: true,
   stackDetails: {
     apiKey: contentstackParams.apiKey,
   },

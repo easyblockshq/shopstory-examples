@@ -1,5 +1,5 @@
 import { ShopstoryClient } from "@shopstory/core/client";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import {
   landingPageProvider,
@@ -9,6 +9,7 @@ import { createContentstackClient } from "../../src/contentstackClient";
 import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
+import { isQueryLivePreviewQuery } from "../../src/utils/isQueryLivePreviewQuery";
 
 const LandingPage = landingPageProvider({
   renderBeforeContent: ({ title }) => (
@@ -19,21 +20,21 @@ const LandingPage = landingPageProvider({
   ShopstoryProvider: DemoShopstoryProvider,
 });
 
-export const getStaticPaths: GetStaticPaths = () => {
-  return { paths: [], fallback: "blocking" };
-};
-
-export const getStaticProps: GetStaticProps<
+export const getServerSideProps: GetServerSideProps<
   LandingPageProps,
   { slug: string }
 > = async (context) => {
-  let { params } = context;
+  let { params, query } = context;
 
   if (!params) {
     return { notFound: true };
   }
 
-  const contentstackClient = createContentstackClient(contentstackParams);
+  const contentstackClient = createContentstackClient({
+    ...contentstackParams,
+    livePreviewQuery: isQueryLivePreviewQuery(query) ? query : undefined,
+  });
+
   const entry = await contentstackClient.fetchLandingPageEntryBySlug(
     params.slug
   );
@@ -51,7 +52,6 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: { title: entry.title, content, meta },
-    revalidate: 10,
   };
 };
 

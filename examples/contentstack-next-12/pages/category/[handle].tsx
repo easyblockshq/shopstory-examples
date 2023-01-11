@@ -1,5 +1,5 @@
 import { ShopstoryClient } from "@shopstory/core/client";
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import {
   categoryPageProvider,
@@ -12,6 +12,7 @@ import { createContentstackClient } from "../../src/contentstackClient";
 import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
+import { isQueryLivePreviewQuery } from "../../src/utils/isQueryLivePreviewQuery";
 
 const CategoryPage: NextPage<CategoryPageProps> = categoryPageProvider({
   renderBeforeContent: ({ title }) => (
@@ -22,13 +23,9 @@ const CategoryPage: NextPage<CategoryPageProps> = categoryPageProvider({
   ShopstoryProvider: DemoShopstoryProvider,
 });
 
-export const getStaticPaths: GetStaticPaths = () => {
-  return { paths: [], fallback: "blocking" };
-};
-
-export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
-  params,
-}) => {
+export const getServerSideProps: GetServerSideProps<
+  CategoryPageProps
+> = async ({ params, query }) => {
   if (!params?.handle)
     throw new Error("Catch all accessed without given [handle]");
 
@@ -43,7 +40,11 @@ export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
     };
   }
 
-  const contentstackClient = createContentstackClient(contentstackParams);
+  const contentstackClient = createContentstackClient({
+    ...contentstackParams,
+    livePreviewQuery: isQueryLivePreviewQuery(query) ? query : undefined,
+  });
+
   const collectionEntry =
     await contentstackClient.fetchCollectionPageEntryBySlug(handle);
   const shopifyCollectionHandle = collectionEntry?.collection_id ?? handle;
@@ -80,7 +81,6 @@ export const getStaticProps: GetStaticProps<CategoryPageProps> = async ({
       renderableContent,
       meta,
     },
-    revalidate: 60,
   };
 };
 
