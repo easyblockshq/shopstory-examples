@@ -35,18 +35,20 @@ function MyApp({
           // @ts-ignore `config` is a private property, but we can access it in transpiled code.
           livePreview?.config.stackSdk.live_preview;
 
-        const livePreviewQueryParams = new URLSearchParams();
-        livePreviewQueryParams.append("live_preview", hash);
-        livePreviewQueryParams.append("content_type_uid", content_type_uid);
-        livePreviewQueryParams.append("entry_uid", entry_uid);
+        if (hash && content_type_uid && entry_uid) {
+          const livePreviewQueryParams = new URLSearchParams();
+          livePreviewQueryParams.append("live_preview", hash);
+          livePreviewQueryParams.append("content_type_uid", content_type_uid);
+          livePreviewQueryParams.append("entry_uid", entry_uid);
 
-        router.replace(
-          `${window.location.pathname}?${livePreviewQueryParams.toString()}`,
-          undefined,
-          {
-            scroll: false,
-          }
-        );
+          router.replace(
+            `${window.location.pathname}?${livePreviewQueryParams.toString()}`,
+            undefined,
+            {
+              scroll: false,
+            }
+          );
+        }
       });
     });
   }, [router]);
