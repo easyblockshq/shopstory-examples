@@ -26,6 +26,7 @@ export const shopstoryConfig: Config = {
       id: "color_black_01",
       label: "Black 01",
       value: "#252525",
+      mapTo: ["$dark", "$backgroundDark"],
     },
     {
       id: "color_black_02",
@@ -41,6 +42,7 @@ export const shopstoryConfig: Config = {
       id: "white_01",
       label: "White 01",
       value: "#f9f8f3",
+      mapTo: ["$light", "$backgroundLight"],
     },
     {
       id: "white_02",
@@ -180,6 +182,7 @@ export const shopstoryConfig: Config = {
         lineHeight: 1.8,
         fontFamily: "test-soehne-mono",
       },
+      mapTo: ["$body", "$body.bold"],
     },
     {
       id: "body-small",
@@ -189,6 +192,7 @@ export const shopstoryConfig: Config = {
         lineHeight: 1.8,
         fontFamily: "test-soehne-mono",
       },
+      mapTo: ["$body2", "$body2.bold"],
     },
     {
       id: "heading1",
@@ -202,6 +206,7 @@ export const shopstoryConfig: Config = {
           fontSize: 36, // responsiveness is easy
         },
       },
+      mapTo: "$heading1",
     },
     {
       id: "heading2",
@@ -215,6 +220,7 @@ export const shopstoryConfig: Config = {
           fontSize: 24, // responsiveness is easy
         },
       },
+      mapTo: "$heading2",
     },
     {
       id: "heading3",
@@ -225,6 +231,7 @@ export const shopstoryConfig: Config = {
         lineHeight: 1.4,
         fontWeight: 600,
       },
+      mapTo: "$heading3",
     },
     {
       id: "heading4",
@@ -235,6 +242,7 @@ export const shopstoryConfig: Config = {
         lineHeight: 1.4,
         fontWeight: 600,
       },
+      mapTo: "$heading4",
     },
     {
       id: "heading5",
@@ -365,4 +373,143 @@ export const shopstoryConfig: Config = {
   },
 
   plugins: [contentstackPlugin(contentstackParams)],
+
+  unstable_templates: [
+    {
+      label: "Button Dark",
+      mapTo: "buttonDark",
+      config: {
+        _template: "Button",
+        appearance: "solidBlack",
+      },
+    },
+
+    {
+      label: "Button Light",
+      mapTo: "buttonLight",
+      config: {
+        _template: "Button",
+        appearance: "solidWhite",
+      },
+    },
+
+    {
+      label: "Text Button",
+      mapTo: ["buttonTextDark", "buttonTextLight"],
+      config: {
+        _template: "Button",
+        appearance: "underlinedBlack",
+      },
+    },
+
+    {
+      mapTo: ["buttonSliderLeft", "buttonSliderLeftDark"],
+      config: {
+        _template: "$IconButton2",
+        action: [],
+        symbol: [
+          {
+            _template: "$icon",
+            icon: {
+              ref: "$sliderLeft",
+            },
+            color: {
+              $res: true,
+              xl: {
+                ref: "white_01",
+                value: "#f9f8f3",
+              },
+            },
+          },
+        ],
+        hasBackground: true,
+        backgroundColor: {
+          $res: true,
+          xl: {
+            ref: "color_black_01",
+          },
+        },
+        hasBorder: false,
+        borderWidth: "1",
+        borderColor: {
+          $res: true,
+          xl: {
+            ref: "color_black_01",
+          },
+        },
+        symbolSize: {
+          $res: true,
+          xl: "24",
+        },
+        buttonSize: {
+          $res: true,
+          xl: "48",
+        },
+        shape: "circle",
+        label: {
+          id: "local.caf60360-0080-44b3-b62b-ba9a942487ec",
+          value: {
+            main: "Previous",
+          },
+        },
+        traceImpressions: false,
+        traceClicks: false,
+      },
+    },
+
+    {
+      mapTo: ["buttonSliderRight", "buttonSliderRightDark"],
+      config: {
+        _template: "$IconButton2",
+        action: [],
+        symbol: [
+          {
+            _template: "$icon",
+            icon: {
+              ref: "$sliderRight",
+            },
+            color: {
+              $res: true,
+              xl: {
+                ref: "white_01",
+                value: "#f9f8f3",
+              },
+            },
+          },
+        ],
+        hasBackground: true,
+        backgroundColor: {
+          $res: true,
+          xl: {
+            ref: "color_black_01",
+          },
+        },
+        hasBorder: false,
+        borderWidth: "1",
+        borderColor: {
+          $res: true,
+          xl: {
+            ref: "color_black_01",
+          },
+        },
+        symbolSize: {
+          $res: true,
+          xl: "24",
+        },
+        buttonSize: {
+          $res: true,
+          xl: "48",
+        },
+        shape: "circle",
+        label: {
+          id: "local.caf60360-0080-44b3-b62b-ba9a942487ec",
+          value: {
+            main: "Next",
+          },
+        },
+        traceImpressions: false,
+        traceClicks: false,
+      },
+    },
+  ],
 };
