@@ -102,7 +102,7 @@ export const getServerSideProps: GetServerSideProps<
         const meta = await shopstoryClient.build();
 
         return {
-          type,
+          type: "shopstoryBlock",
           content,
           meta,
         };
