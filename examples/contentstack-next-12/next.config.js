@@ -3,7 +3,7 @@ const withTM = require("next-transpile-modules")(["shared"]);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   images: {
     domains: [
       "i.picsum.photos",
