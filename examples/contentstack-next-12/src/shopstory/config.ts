@@ -357,14 +357,18 @@ export const shopstoryConfig: Config = {
             );
             const relatedProducts = await fetchProducts("tag:" + relatedTag);
 
-            result.push({
-              ...resources.find(
-                (resource) => decodeObjectId(resource.id) === product.id
-              )!,
-              value: {
-                ...product,
-                relatedProducts,
-              },
+            const relatedResources = resources.filter((resource) => {
+              return decodeObjectId(resource.id) === product.id;
+            });
+
+            relatedResources.forEach((relatedResource) => {
+              result.push({
+                ...relatedResource,
+                value: {
+                  ...product,
+                  relatedProducts,
+                },
+              });
             });
           })
         );
@@ -517,9 +521,7 @@ export const shopstoryConfig: Config = {
 };
 
 function decodeObjectId(id: string) {
-  if (isGid(id)) {
-    return id;
-  }
+  if (isGid(id)) return id;
 
   return typeof window === "undefined"
     ? Buffer.from(id, "base64").toString("utf-8")
