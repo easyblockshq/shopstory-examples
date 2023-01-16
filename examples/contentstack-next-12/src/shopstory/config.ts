@@ -358,7 +358,9 @@ export const shopstoryConfig: Config = {
             const relatedProducts = await fetchProducts("tag:" + relatedTag);
 
             result.push({
-              ...resources.find((resource) => resource.id === product.id)!,
+              ...resources.find(
+                (resource) => decodeObjectId(resource.id) === product.id
+              )!,
               value: {
                 ...product,
                 relatedProducts,
@@ -513,3 +515,17 @@ export const shopstoryConfig: Config = {
     },
   ],
 };
+
+function decodeObjectId(id: string) {
+  if (isGid(id)) {
+    return id;
+  }
+
+  return typeof window === "undefined"
+    ? Buffer.from(id, "base64").toString("utf-8")
+    : window.atob(id);
+}
+
+function isGid(id: string) {
+  return id.startsWith("gid://shopify/");
+}
