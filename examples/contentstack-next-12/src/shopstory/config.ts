@@ -358,7 +358,7 @@ export const shopstoryConfig: Config = {
             const relatedProducts = await fetchProducts("tag:" + relatedTag);
 
             const relatedResources = resources.filter((resource) => {
-              return decodeObjectId(resource.id) === product.id;
+              return decodeObjectId(resource.id) === decodeObjectId(product.id);
             });
 
             relatedResources.forEach((relatedResource) => {
