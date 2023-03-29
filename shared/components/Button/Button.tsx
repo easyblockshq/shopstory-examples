@@ -1,5 +1,5 @@
 import React from "react";
-import { ShopstoryButton } from "@shopstory/core/types";
+import { ShopstoryButton } from "@shopstory/react";
 import * as styles from "./Button.module.css";
 export type ButtonProps = {
   variant: "dark" | "light" | "dark-outline" | "light-outline";

@@ -1,8 +1,8 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { RenderableContent, Metadata } from "@shopstory/core";
 import { createClient, Entry } from 'contentful'
-import { ShopstoryClient } from "@shopstory/core/client";
-import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/core/react";
+import { ShopstoryClient } from "@shopstory/core";
+import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
 import {shopstoryConfig} from "../../src/shopstory/config";
 import {DemoShopstoryProvider} from "../../src/shopstory/provider";
 

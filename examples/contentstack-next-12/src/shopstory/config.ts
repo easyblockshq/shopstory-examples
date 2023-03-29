@@ -2,7 +2,7 @@ import type { Config, FetchResourcesOutput } from "@shopstory/core";
 import { contentstackPlugin } from "@shopstory/contentstack";
 import { fetchProductsByIds } from "shared/data/shopify/fetchProductsByIds";
 import { fetchProducts } from "shared/data/shopify/fetchProducts";
-import { shopifyProductPickerField } from "@shopstory/core/shopify";
+import { shopifyProductPickerField } from "@shopstory/shopify";
 import { contentstackParams } from "../contentstackParams";
 
 export const shopstoryConfig: Config = {

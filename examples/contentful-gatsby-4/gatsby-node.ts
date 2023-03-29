@@ -1,4 +1,4 @@
-import { ShopstoryClient } from "@shopstory/core/client";
+import { ShopstoryClient } from "@shopstory/core";
 import { createClient } from "contentful";
 import type { CreatePagesArgs } from "gatsby";
 import path from "path";

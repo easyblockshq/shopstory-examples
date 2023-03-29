@@ -2,7 +2,7 @@ import {
   ShopstoryProvider,
   ImageProps,
   ShopstoryLink,
-} from "@shopstory/core/react";
+} from "@shopstory/react";
 
 import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";

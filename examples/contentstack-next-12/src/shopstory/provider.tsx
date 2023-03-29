@@ -2,7 +2,7 @@ import {
   ShopstoryProvider,
   ImageProps,
   ShopstoryLink,
-} from "@shopstory/core/react";
+} from "@shopstory/react";
 
 import { Button } from "shared/components/common/Button/Button";
 import { ProductCard } from "shared/components/common/ProductCard/ProductCard";
@@ -11,7 +11,7 @@ import { AlertAction } from "shared/actions/AlertAction";
 import Link from "next/link";
 import NextImage from "next/image";
 import { forwardRef } from "react";
-import type { ShopstoryButtonProps } from "@shopstory/core/types";
+import type { ShopstoryButtonProps } from "@shopstory/react";
 
 const ShopstoryButton = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,

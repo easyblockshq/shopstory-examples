@@ -1,4 +1,4 @@
-import { shopstoryGetStyleTag } from "@shopstory/core/react";
+import { shopstoryGetStyleTag } from "@shopstory/react";
 import { PreRenderHTMLArgs } from "gatsby";
 import { cloneElement } from "react";
 import { wrapPageElement } from "./gatsby-browser";

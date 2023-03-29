@@ -1,4 +1,4 @@
-import { Shopstory } from "@shopstory/core/react";
+import { Shopstory } from "@shopstory/react";
 import { ComponentType, ReactNode } from "react";
 import { BannerSection } from "../blocks/BannerSection/BannerSection";
 import { ProductsGridSection } from "../blocks/ProductsGridSection/ProductsGridSection";

@@ -5,7 +5,9 @@
     "shared"
   ],
   "dependencies": {
-    "@shopstory/core": "0.9.0-rc.19",
+    "@shopstory/core": "1.0.0-rc.2",
+    "@shopstory/react": "1.0.0-rc.3",
+    "@shopstory/contentful": "1.0.0-rc.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-modal": "^3.16.1"

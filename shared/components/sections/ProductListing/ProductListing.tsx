@@ -20,7 +20,7 @@ import { ToggleButton } from "../../common/ToggleButton/ToggleButton";
 import { ToggleColorButton } from "../../common/ToggleColorButton/ToggleColorButton";
 import { ToggleRadioButton } from "../../common/ToggleRadioButton/ToggleRadioButton";
 import CloseIcon from "../../icons/CloseIcon";
-import { ShopstoryGrid } from "@shopstory/core/react";
+import { ShopstoryGrid } from "@shopstory/react";
 import Link from "next/link";
 
 const getActiveFiltersCount = (activeFilters: any) => {

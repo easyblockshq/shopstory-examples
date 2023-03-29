@@ -1,13 +1,13 @@
 import * as React from "react";
-import type { RenderableContentPiece, Metadata } from "@shopstory/core";
-import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/core/react";
+import type { RenderableContent, Metadata } from "@shopstory/core";
+import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
 import type { PageProps } from "gatsby";
 import { DemoShopstoryProvider } from "../shopstory/Provider";
 
 type ShopstoryBlockPageTemplateProps = PageProps<
   never,
   {
-    content: RenderableContentPiece;
+    content: RenderableContent;
     meta: Metadata;
   }
 >;
