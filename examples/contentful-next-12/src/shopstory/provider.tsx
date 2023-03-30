@@ -6,7 +6,7 @@ import {
 
 import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
-import { ProductCard } from "shared/components/ProductCard/ProductCard";
+import { ProductCard } from "shared/components/common/ProductCard/ProductCard";
 import { AlertAction } from "shared/actions/AlertAction";
 
 import Link from "next/link";

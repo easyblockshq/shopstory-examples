@@ -10,22 +10,19 @@ const ProductCard: FC<{
   relatedProductsMode: "enabled" | "disabled" | "onHover";
   withBackdrop: Boolean;
 }> = ({ product, relatedProductsMode, withBackdrop: withBackdrop }) => {
+  const hasRelatedProducts = product.relatedProducts && product.relatedProducts?.length > 1;
+  const shouldShowRelatedProducts = hasRelatedProducts && relatedProductsMode === "enabled";
+  const shouldShowRelatedProductsOnHover = hasRelatedProducts && relatedProductsMode === "onHover"
+
+  let relatedProductsClassName = "";
+  if (shouldShowRelatedProducts) {
+    relatedProductsClassName = styles.wrapperWithVariants;
+  } else if (shouldShowRelatedProductsOnHover) {
+    relatedProductsClassName = styles.wrapperWithVariantsOnHover;
+  }
+
   return (
-    <div
-      className={[
-        styles.wrapper,
-        product.relatedProducts &&
-        product.relatedProducts?.length > 1 &&
-        relatedProductsMode === "enabled"
-          ? styles.wrapperWithVariants
-          : "",
-        product.relatedProducts &&
-        product.relatedProducts?.length > 1 &&
-        relatedProductsMode === "onHover"
-          ? styles.wrapperWithVariantsOnHover
-          : "",
-      ].join(" ")}
-    >
+    <div className={`${styles.wrapper} ${relatedProductsClassName}`}>
       <Link href={"/products/" + product.handle}>
         <a>
           <div

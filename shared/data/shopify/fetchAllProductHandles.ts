@@ -10,7 +10,7 @@ async function fetchAllProductHandles() {
 
     let lastProductCursor = null
     let hasNextPage = false
-    let data
+    let data: any
 
     do {
       data = await fetchShopify(fetchProductsHandlesQuery, {
@@ -33,7 +33,6 @@ async function fetchAllProductHandles() {
   }
 
   const responses = await Promise.all([query()])
-
   return responses.flat()
 }
 

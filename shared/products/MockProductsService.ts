@@ -1,23 +1,16 @@
 import products from "./products.json";
 
-const IMAGE_ROOT = "https://shopstory.s3.eu-central-1.amazonaws.com/shopstory-examples"
-
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export type Product = {
-  id: string;
-  title: string;
-  price: number;
-  compareAtPrice: number | null;
-  image: string;
-};
+export type Product = any;
 
 function mapProduct(product: Product) {
   return {
-    ...product,
-    image: `${IMAGE_ROOT}${product.image}`
+    id: product.id,
+    title: product.title,
+    image: product.images.edges?.[0].node?.originalSrc
   }
 }
 
@@ -36,8 +29,8 @@ export const MockProductsService = {
     }
     return mapProduct(product);
   },
-  getProductsByIds: async (ids: string[]): Promise<Product[]> => {
+  fetchProducts: async (ids: string[]): Promise<Product[]> => {
     await sleep(500);
-    return products.filter((product) => ids.includes(product.id)).map(mapProduct);
+    return products.filter((product) => ids.includes(product.id));
   },
 };

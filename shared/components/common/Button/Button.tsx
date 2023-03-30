@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, ForwardRefRenderFunction } from "react";
+import React from "react";
 import styles from "./Button.module.css";
 
 export type ButtonAppearance =
@@ -22,7 +22,7 @@ type ButtonProps = Omit<
 > &
   SharedButtonProps & { as?: "button" | "a" };
 
-export const Button = forwardRef<
+export const Button = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
 >((props, ref) => {
@@ -34,6 +34,8 @@ export const Button = forwardRef<
     className,
     ...restProps
   } = props;
+
+  console.log('BUTTON!', props);
 
   let classes = [];
 

@@ -4,7 +4,7 @@ import fetchShopify from "./fetchShopify";
 import { fetchCollectionByHandleQuery } from "./graphql/fetchCollectionByHandleQuery";
 
 const fetchCollectionByHandle = async (handle: string) => {
-  let data;
+  let data: any
   let collection;
   let collectionProducts: any = [];
   let lastProductCursor = null;

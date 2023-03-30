@@ -4,8 +4,6 @@ import {shopstoryConfig} from "../src/shopstory/config";
 import { DemoShopstoryProvider } from "../src/shopstory/provider";
 
 const ShopstoryCanvasPage: NextPage = () => {
-  console.log(shopstoryConfig);
-
   return <DemoShopstoryProvider>
     <Canvas config={shopstoryConfig} />
   </DemoShopstoryProvider>

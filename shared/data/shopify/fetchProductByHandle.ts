@@ -4,7 +4,7 @@ import fetchShopify from "./fetchShopify";
 import { fetchProductByHandleQuery } from "./graphql/fetchProductQuery";
 
 const fetchProductByHandle = async (handle: string) => {
-  const data = await fetchShopify(fetchProductByHandleQuery, { handle });
+  const data: any = await fetchShopify(fetchProductByHandleQuery, { handle });
 
   if (!data)
     throw new Error(
