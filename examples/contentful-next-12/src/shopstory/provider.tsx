@@ -7,6 +7,7 @@ import { ProductCard } from "shared/components/ProductCard/ProductCard";
 
 import NextImage from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 const NextLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
@@ -20,7 +21,9 @@ const Image: React.FC<ImageProps> = (props) => {
   return <NextImage src={props.src} alt={props.alt} layout={"fill"} />;
 };
 
-export const DemoShopstoryProvider: React.FC = ({ children }) => {
+export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   return (
     <ShopstoryProvider
       components={{
