@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
 import { Canvas } from "@shopstory/react";
-import { shopstoryConfig } from "../src/shopstory/config";
-import { DemoShopstoryProvider } from "../src/shopstory/provider";
+import type { NextPage } from "next";
+import { shopstoryConfig } from "../shopstory/config";
+import { DemoShopstoryProvider } from "../shopstory/provider";
 
 const ShopstoryCanvasPage: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const ShopstoryCanvasPage: NextPage = () => {
   );
 };
 
-// @ts-ignore
+// @ts-expect-error
 ShopstoryCanvasPage.noHeaderAndFooter = true;
 
 export default ShopstoryCanvasPage;

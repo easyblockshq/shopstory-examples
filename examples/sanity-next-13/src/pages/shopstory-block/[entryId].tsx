@@ -1,10 +1,10 @@
-import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
-import { RenderableContent, Metadata } from "@shopstory/core";
-import { createClient, Entry } from "contentful";
-import { ShopstoryClient } from "@shopstory/core";
+import { Metadata, RenderableContent, ShopstoryClient } from "@shopstory/core";
 import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
-import { shopstoryConfig } from "../../src/shopstory/config";
-import { DemoShopstoryProvider } from "../../src/shopstory/provider";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { createClient } from "next-sanity";
+import sanityConfig from "../../sanity.config";
+import { shopstoryConfig } from "../../shopstory/config";
+import { DemoShopstoryProvider } from "../../shopstory/provider";
 
 type ShopstoryBlockPageProps = {
   renderableContent: RenderableContent;
@@ -35,24 +35,22 @@ export const getStaticProps: GetStaticProps<
     return { notFound: true };
   }
 
-  const contentfulClient = createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
-    environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT ?? "master",
-    accessToken: preview
-      ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!
-      : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
-    host: preview ? "preview.contentful.com" : undefined,
+  const sanityClient = createClient({
+    apiVersion: "2023-03-30",
+    dataset: sanityConfig.dataset,
+    projectId: sanityConfig.projectId,
+    useCdn: false,
+    token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
   });
 
-  const entry: Entry<any> = await contentfulClient.getEntry(params.entryId, {
-    content_type: "shopstoryBlock",
-    locale,
-  });
+  const documents = await sanityClient.fetch(
+    `*[_id == "${params.entryId}"]{"shopstory": shopstory.${locale}}`
+  );
 
-  const rawContent = entry.fields.content;
+  const rawContent = documents[0].shopstory;
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale,
-    contentful: { preview },
+    sanity: { preview },
   });
   const renderableContent = shopstoryClient.add(rawContent);
   const meta = await shopstoryClient.build();

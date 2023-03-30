@@ -1,6 +1,6 @@
+import { contentfulPlugin } from "@shopstory/contentful";
 import { Config } from "@shopstory/core";
 import { shopstoryBaseConfig } from "shared/shopstory/baseConfig";
-import {contentfulPlugin} from "@shopstory/contentful";
 
 export const shopstoryConfig: Config = {
   ...shopstoryBaseConfig,
@@ -12,5 +12,5 @@ export const shopstoryConfig: Config = {
       previewAccessToken:
         process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN!,
     }),
-  ]
+  ],
 };

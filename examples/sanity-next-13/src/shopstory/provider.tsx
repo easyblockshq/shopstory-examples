@@ -1,12 +1,13 @@
-import { ImageProps, ShopstoryLink, ShopstoryProvider } from "@shopstory/react";
+import { ShopstoryProvider, ImageProps, ShopstoryLink } from "@shopstory/react";
 
-import { AlertAction } from "shared/actions/AlertAction";
 import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
 import { ProductCard } from "shared/components/ProductCard/ProductCard";
+import { AlertAction } from "shared/actions/AlertAction";
 
-import NextImage from "next/image";
 import Link from "next/link";
+import NextImage from "next/image";
+import { ReactNode } from "react";
 
 const NextLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
@@ -20,7 +21,9 @@ const Image: React.FC<ImageProps> = (props) => {
   return <NextImage src={props.src} alt={props.alt} layout={"fill"} />;
 };
 
-export const DemoShopstoryProvider: React.FC = ({ children }) => {
+export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   return (
     <ShopstoryProvider
       components={{

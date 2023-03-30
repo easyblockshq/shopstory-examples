@@ -1,4 +1,5 @@
 import { Region } from "contentstack";
+import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
 import type { ContentstackClientParams } from "./contentstackClient";
 
 const validRegionValues = new Set<Region>([
@@ -6,14 +7,6 @@ const validRegionValues = new Set<Region>([
   Region.EU,
   Region.US,
 ]);
-
-class MissingEnvironmentVariableError extends Error {
-  constructor(environmentVariableName: string) {
-    super(
-      `Missing environment variable ${environmentVariableName}. Make sure to setup your .env file before running application.`
-    );
-  }
-}
 
 if (!process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_CONTENTSTACK_API_KEY");

@@ -1,22 +1,8 @@
 {
   "name": "root",
-  "workspaces": [
-    "examples/*",
-    "shared"
-  ],
-  "dependencies": {
-    "@shopstory/core": "1.0.0-rc.2",
-    "@shopstory/react": "1.0.0-rc.3",
-    "@shopstory/contentful": "1.0.0-rc.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-modal": "^3.16.1"
-  },
+  "private": true,
   "devDependencies": {
     "@types/node": "18.11.9",
-    "@types/react": "17.0.52",
-    "@types/react-dom": "17.0.18",
-    "@types/react-modal": "^3.13.1",
     "postcss-custom-media": "8.0.2",
     "postcss-mixins": "^9.0.4",
     "postcss-nested": "^6.0.0",
