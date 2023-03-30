@@ -1,5 +1,4 @@
 import { Config } from "@shopstory/core";
-import { MockProductsService } from "../products/MockProductsService";
 import {fetchProductsByIds} from "../data/shopify/fetchProductsByIds";
 import {fetchProducts} from "../data/shopify/fetchProducts";
 import {fetchProductById} from "../data/shopify/fetchProductById";

@@ -2,13 +2,13 @@ import styles from './productDetails.module.css'
 import React, { FC, useEffect, useRef, useState } from 'react'
 import { ShopifyProduct } from '../../../types'
 import { formatPrice } from '../../../utils/formatPrice'
-import AddToBagButton from '../../common/AddToBagButton/AddToBagButton'
-import { Media } from '../../common/Media/Media'
+import AddToBagButton from '../../AddToBagButton/AddToBagButton'
+import { Media } from '../../Media/Media'
 import Link from 'next/link'
 import { getCollectionColor } from '../../../data/shopify/filterCollection'
-import { ToastPortal } from '../../common/Toast/ToastPortal'
-import { Toast } from '../../common/Toast/Toast'
-import { Button } from '../../common/Button/Button'
+import { ToastPortal } from '../../Toast/ToastPortal'
+import { Toast } from '../../Toast/Toast'
+import { Button } from '../../Button/Button'
 
 const ProductDetails: FC<{ product: ShopifyProduct }> = ({ product }) => {
   const descriptionRef = useRef<HTMLDivElement | null>(null)

@@ -1,6 +1,6 @@
 import styles from './ToggleColorButton.module.css'
 import React, { FC, ReactNode } from 'react'
-import Tick from '../../icons/Tick'
+import Tick from '../icons/Tick'
 
 export const ToggleColorButton: FC<
   React.HTMLProps<HTMLButtonElement> & { type?: 'submit' | 'reset' | 'button'; color: string }

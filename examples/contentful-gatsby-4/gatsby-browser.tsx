@@ -1,7 +1,7 @@
 import { WrapPageElementBrowserArgs } from "gatsby";
 import React, { Fragment } from "react";
-import { Footer } from "shared/components/Footer/Footer";
-import { Header } from "shared/components/Header/Header";
+import { MockFooter } from "shared/components/MockFooter/MockFooter";
+import { MockHeader } from "shared/components/MockHeader/MockHeader";
 import "./src/styles/globals.css";
 
 export function wrapPageElement({
@@ -14,9 +14,9 @@ export function wrapPageElement({
 
   return (
     <Fragment>
-      <Header />
+      <MockHeader />
       <div style={{ minHeight: "100vh" }}>{element}</div>
-      <Footer />
+      <MockFooter />
     </Fragment>
   );
 }

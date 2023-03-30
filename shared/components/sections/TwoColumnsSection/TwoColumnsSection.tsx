@@ -1,5 +1,5 @@
 import styles from './TwoColumnsSection.module.css'
-import { Button } from '../../common/Button/Button'
+import { Button } from '../../Button/Button'
 import Link from 'next/link'
 
 export type TwoColumnsSectionProps = {

@@ -1,6 +1,6 @@
 import styles from "./ProductsGridSection.module.css";
 import { ShopifyProduct } from "../../../types";
-import { ProductCard } from "../../common/ProductCard/ProductCard";
+import { ProductCard } from "../../ProductCard/ProductCard";
 
 export type ProductsGridSectionProps = {
   title: string;

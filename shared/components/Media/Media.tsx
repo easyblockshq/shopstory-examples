@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { ImageProps } from 'next/image'
 import { Image } from './Image'
-import { MediaObject } from '../../../types'
+import { MediaObject } from '../../types'
 
 const RATIOS: { [key: string]: number } = {
   landscape1: 0.42,
