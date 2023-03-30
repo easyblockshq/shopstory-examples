@@ -30,12 +30,12 @@ export default defineConfig({
       canvasUrl: "/shopstory-canvas",
       locales: [
         {
-          code: "en-US",
+          code: "en",
           isDefault: true,
         },
         {
-          code: "de-DE",
-          fallback: "en-US",
+          code: "de",
+          fallback: "en",
         },
       ],
     }),

@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["shared"],
   i18n: {
-    locales: ["en-US", "de-DE"],
-    defaultLocale: "en-US",
+    locales: ["en", "de"],
+    defaultLocale: "en",
   },
 };
 
