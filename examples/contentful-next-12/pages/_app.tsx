@@ -2,7 +2,6 @@ import type { AppProps } from "next/app";
 import { MockHeader } from "shared/components/MockHeader/MockHeader";
 import { MockFooter } from "shared/components/MockFooter/MockFooter";
 import "shared/styles/globals.css";
-import "../public/fonts/style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // @ts-ignore
