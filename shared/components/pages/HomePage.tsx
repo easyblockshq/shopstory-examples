@@ -1,7 +1,7 @@
 import type { RenderableContent, Metadata } from "@shopstory/core";
 import { Shopstory } from "@shopstory/react";
 import { type ComponentType, Fragment, type ReactNode } from "react";
-import { PageWrapper } from "../common/PageWrapper/PageWrapper";
+import { PageWrapper } from "../PageWrapper/PageWrapper";
 
 type HomePageProviderOptions = {
   beforeContent: ReactNode;

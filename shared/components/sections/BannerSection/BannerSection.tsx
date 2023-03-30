@@ -1,6 +1,6 @@
 import styles from "./BannerSection.module.css";
 import Image from "next/image";
-import { Button } from "../../common/Button/Button";
+import { Button } from "../../Button/Button";
 import Link from "next/link";
 
 export type BannerSectionProps = {

@@ -1,9 +1,9 @@
 import { Shopstory } from "@shopstory/react";
 import { ComponentType, ReactNode } from "react";
-import { BannerSection } from "../blocks/BannerSection/BannerSection";
-import { ProductsGridSection } from "../blocks/ProductsGridSection/ProductsGridSection";
-import { TwoColumnsSection } from "../blocks/TwoColumnsSection/TwoColumnsSection";
-import { PageWrapper } from "../common/PageWrapper/PageWrapper";
+import { BannerSection } from "../sections/BannerSection/BannerSection";
+import { ProductsGridSection } from "../sections/ProductsGridSection/ProductsGridSection";
+import { TwoColumnsSection } from "../sections/TwoColumnsSection/TwoColumnsSection";
+import { PageWrapper } from "../PageWrapper/PageWrapper";
 
 type PageProviderOptions = {
   beforeContent: ReactNode;
