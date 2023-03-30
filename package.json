@@ -1,6 +1,8 @@
 {
   "name": "root",
-  "private": true,
+  "dependencies": {
+    "graphql-request": "^5.2.0"
+  },
   "devDependencies": {
     "@types/node": "18.11.9",
     "postcss-custom-media": "8.0.2",

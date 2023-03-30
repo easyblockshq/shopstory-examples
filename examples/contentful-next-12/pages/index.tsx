@@ -1,8 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
+import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    fetchCollectionByHandle("all").then((data: any) => {
+      console.log(data.products);
+      // console.log(data.products.map(mapProduct));
+    });
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
