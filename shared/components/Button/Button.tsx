@@ -1,6 +1,6 @@
 import React from "react";
 import { ShopstoryButton } from "@shopstory/react";
-import * as styles from "./Button.module.css";
+import styles from "./Button.module.css";
 export type ButtonProps = {
   variant: "dark" | "light" | "dark-outline" | "light-outline";
 };
@@ -10,7 +10,7 @@ export const Button: ShopstoryButton<ButtonProps> = (props) => {
 
   let extraClass = "";
   if (variant === "light") {
-    extraClass = styles["light"];
+    extraClass = styles.light;
   } else if (variant === "dark-outline") {
     extraClass = styles.outline;
   } else if (variant === "light-outline") {

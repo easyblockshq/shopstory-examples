@@ -1,5 +1,5 @@
 import React from "react";
-import * as sharedStyles from "../shared.module.css";
+import sharedStyles from "../shared.module.css";
 
 export const Footer: React.FC = () => {
   return (
