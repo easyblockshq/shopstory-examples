@@ -1,6 +1,6 @@
 import React from "react";
 import type { HeadFC } from "gatsby";
-import * as styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 import "../styles/globals.css";
 
 function HomePage() {

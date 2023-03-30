@@ -1,8 +1,20 @@
 import { ShopstoryClient } from "@shopstory/core";
 import { createClient } from "contentful";
-import type { CreatePagesArgs } from "gatsby";
+import type { CreatePagesArgs, CreateWebpackConfigArgs } from "gatsby";
 import path from "path";
 import { shopstoryConfig } from "./src/shopstory/config";
+
+export function onCreateWebpackConfig({ actions }: CreateWebpackConfigArgs) {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        vm: false,
+        path: false,
+        util: false,
+      },
+    },
+  });
+}
 
 export async function createPages({
   actions: { createPage, createRedirect },
