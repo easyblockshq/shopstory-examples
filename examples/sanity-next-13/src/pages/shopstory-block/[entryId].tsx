@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<
   ShopstoryBlockPageProps,
   { entryId: string }
 > = async (context) => {
-  let { params, preview, locale = "en-US" } = context;
+  let { params, preview, locale = "en" } = context;
 
   if (!params) {
     return { notFound: true };
