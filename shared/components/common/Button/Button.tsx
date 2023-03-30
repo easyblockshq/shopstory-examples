@@ -1,41 +1,22 @@
 import React from "react";
 import styles from "./Button.module.css";
+import {ShopstoryButton} from "@shopstory/react";
 
-export type ButtonAppearance =
-  | "naked"
-  | "solidBlack"
-  | "solidWhite"
-  | "solidGrey"
-  | "outlineBlack"
-  | "underlinedBlack"
-  | "extraSmall";
-
-type SharedButtonProps = {
-  type?: "submit" | "reset" | "button";
-  appearance?: ButtonAppearance;
+type ButtonProps = {
+  appearance?: "naked" | "solidBlack" | "solidWhite" | "solidGrey" | "outlineBlack" | "underlinedBlack" | "extraSmall";
   size?: "standard" | "small" | "medium";
 };
 
-type ButtonProps = Omit<
-  React.HTMLProps<HTMLButtonElement> | React.HTMLProps<HTMLLinkElement>,
-  "size"
-> &
-  SharedButtonProps & { as?: "button" | "a" };
-
-export const Button = React.forwardRef<
-  HTMLButtonElement | HTMLAnchorElement,
-  ButtonProps
->((props, ref) => {
+export const Button : ShopstoryButton<ButtonProps> = (props) => {
   const {
     children,
     as,
     appearance = "naked",
     size,
     className,
+    label,
     ...restProps
   } = props;
-
-  console.log('BUTTON!', props);
 
   let classes = [];
 
@@ -44,28 +25,7 @@ export const Button = React.forwardRef<
   }
 
   if (appearance) {
-    switch (appearance) {
-      case "naked":
-        break;
-      case "solidBlack":
-        classes.push(styles.solidBlack);
-        break;
-      case "solidWhite":
-        classes.push(styles.solidWhite);
-        break;
-      case "solidGrey":
-        classes.push(styles.solidGrey);
-        break;
-      case "outlineBlack":
-        classes.push(styles.outlineBlack);
-        break;
-      case "underlinedBlack":
-        classes.push(styles.underlinedBlack);
-        break;
-      case "extraSmall":
-        classes.push(styles.extraSmall);
-        break;
-    }
+    classes.push(styles[appearance]);
   }
 
   if (size) {
@@ -79,19 +39,7 @@ export const Button = React.forwardRef<
     }
   }
 
-  if (props.as === "a") {
-    return (
-      // @ts-ignore
-      <a className={classes.join(" ")} ref={ref} {...restProps}>
-        {children}
-      </a>
-    );
-  } else {
-    return (
-      // @ts-ignore
-      <button className={classes.join(" ")} ref={ref} {...restProps}>
-        {children}
-      </button>
-    );
-  }
-});
+  const tag = props.as ?? "button";
+
+  return React.createElement(tag, {...restProps, className: classes.join(" ")}, label ?? children);
+};

@@ -4,7 +4,7 @@ import {
   ShopstoryLink,
 } from "@shopstory/react";
 
-import { Button } from "shared/components/Button/Button";
+import { Button } from "shared/components/common/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
 import { ProductCard } from "shared/components/common/ProductCard/ProductCard";
 import { AlertAction } from "shared/actions/AlertAction";
