@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-pnpm`,
     {
       resolve: "gatsby-source-contentful",
       options: {
@@ -25,6 +26,16 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-image",
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            namedExport: false,
+          },
+        },
+      },
+    },
   ],
 };
 

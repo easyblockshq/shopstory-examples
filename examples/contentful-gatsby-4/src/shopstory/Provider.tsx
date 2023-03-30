@@ -1,14 +1,10 @@
-import {
-  ImageProps,
-  ShopstoryLink,
-  ShopstoryProvider,
-} from "@shopstory/react";
+import { ImageProps, ShopstoryLink, ShopstoryProvider } from "@shopstory/react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImageData } from "gatsby-plugin-image";
 import * as React from "react";
-import { Button } from "shared/components/common/Button/Button";
+import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
-import { ProductCard } from "shared/components/common/ProductCard/ProductCard";
+import { ProductCard } from "shared/components/ProductCard/ProductCard";
 
 const InternalLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
