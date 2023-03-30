@@ -1,8 +1,21 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
+import {useEffect} from "react";
+import fetchShopify from "shared/data/shopify/fetchShopify";
+import {fetchCollectionByHandleQuery} from "shared/data/shopify/graphql/fetchCollectionByHandleQuery";
+import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
+import { mapProduct } from "shared/utils/mapProduct";
 
 const Home: NextPage = () => {
+
+  useEffect(() => {
+    fetchCollectionByHandle("all").then((data: any) => {
+      console.log(data.products);
+      // console.log(data.products.map(mapProduct));
+    })
+
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -20,4 +33,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Home

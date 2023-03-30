@@ -1,7 +1,7 @@
 import React from 'react'
 import NextImage, { ImageLoader, ImageProps } from 'next/image'
-import { ImageLoaderProps, shopifyImageLoader } from '../../../utils/loaders'
-import { ImageObject } from '../../../types'
+import { ImageLoaderProps, shopifyImageLoader } from '../../utils/loaders'
+import { ImageObject } from '../../types'
 
 export const Image: React.FunctionComponent<ImageProps & ImageObject> = ({
   from,

@@ -1,108 +1,197 @@
 import { Config } from "@shopstory/core";
-import { MockProductsService } from "../products/MockProductsService";
+import {fetchProductsByIds} from "../data/shopify/fetchProductsByIds";
+import {fetchProducts} from "../data/shopify/fetchProducts";
+import {fetchProductById} from "../data/shopify/fetchProductById";
 
 export const shopstoryBaseConfig: Config = {
+
+  /**
+   * Aspect ratios are tokenized.
+   */
+  aspectRatios: [
+    {
+      id: '$gridMainObjectDefault',
+      value: '10:7'
+    }
+  ],
+
+  /**
+   * Color tokens
+   */
+  colors: [
+    {
+      id: 'color_black_01',
+      label: 'Black 01',
+      value: '#252525',
+      mapTo: ['$dark', '$backgroundDark']
+    },
+    {
+      id: 'color_black_02',
+      label: 'Black 02',
+      value: '#4f4f4f'
+    },
+    {
+      id: 'color_black_03',
+      label: 'Black 03',
+      value: '#000000'
+    },
+    {
+      id: 'white_01',
+      label: 'White 01',
+      value: '#f9f8f3',
+      mapTo: ['$light', '$backgroundLight']
+    },
+    {
+      id: 'white_02',
+      label: 'White 02',
+      value: '#bdbdbd'
+    },
+    {
+      id: 'beige_01',
+      label: 'Beige 01',
+      value: '#f1f0ea'
+    },
+    {
+      id: 'grey_01',
+      label: 'Grey 01',
+      value: '#a0a09d'
+    },
+    {
+      id: 'grey_02',
+      label: 'Grey 02',
+      value: '#4F4F4F'
+    }
+  ],
+
   fonts: [
     {
-      id: "body",
-      label: "Body",
+      id: 'body',
+      label: 'Body',
       value: {
         fontSize: 20,
-        lineHeight: 1.4,
-        fontFamily: "sans-serif",
-        "@xs": {
-          fontSize: 18,
-        },
+        lineHeight: 1.8,
+        fontFamily: 'test-soehne-mono'
       },
+      mapTo: ['$body', '$body.bold']
     },
     {
-      id: "body-small",
-      label: "Body small",
+      id: 'body-small',
+      label: 'Body small',
       value: {
-        fontSize: 15,
-        lineHeight: 1.4,
-        fontFamily: "sans-serif",
+        fontSize: 13,
+        lineHeight: 1.8,
+        fontFamily: 'test-soehne-mono'
       },
+      mapTo: ['$body2', '$body2.bold']
     },
     {
-      id: "heading-large",
-      label: "Heading large",
+      id: 'heading1',
+      label: 'Heading 1',
       value: {
+        fontFamily: 'test-national-2',
         fontSize: 48,
         lineHeight: 1.2,
         fontWeight: 700,
-        fontFamily: "sans-serif",
-        "@sm": {
-          fontSize: 36, // responsiveness is easy
-        },
+        '@sm': {
+          fontSize: 36 // responsiveness is easy
+        }
       },
+      mapTo: '$heading1'
     },
     {
-      id: "heading-medium",
-      label: "Heading medium",
+      id: 'heading2',
+      label: 'Heading 2',
       value: {
+        fontFamily: 'test-national-2',
         fontSize: 36,
         lineHeight: 1.2,
         fontWeight: 700,
-        fontFamily: "sans-serif",
-        "@sm": {
-          fontSize: 24, // responsiveness is easy
-        },
+        '@sm': {
+          fontSize: 24 // responsiveness is easy
+        }
       },
+      mapTo: '$heading2'
     },
     {
-      id: "heading-small",
-      label: "Heading small",
+      id: 'heading3',
+      label: 'Heading 3',
       value: {
-        fontSize: 24,
-        lineHeight: 1.2,
-        fontWeight: 700,
-        fontFamily: "sans-serif",
+        fontFamily: 'test-national-2',
+        fontSize: 21,
+        lineHeight: 1.4,
+        fontWeight: 600
       },
+      mapTo: '$heading3'
     },
+    {
+      id: 'heading4',
+      label: 'Heading 4',
+      value: {
+        fontFamily: 'test-national-2',
+        fontSize: 16,
+        lineHeight: 1.4,
+        fontWeight: 600
+      },
+      mapTo: '$heading4'
+    },
+    {
+      id: 'heading5',
+      label: 'Heading 5',
+      value: {
+        fontFamily: 'test-national-2',
+        fontSize: 13,
+        lineHeight: 1.4,
+        fontWeight: 600
+      }
+    }
   ],
-  colors: [
-    {
-      id: "green",
-      label: "Green",
-      value: "#83d1c4",
-    },
-    {
-      id: "purple",
-      label: "Purple",
-      value: "#78517c",
-    },
-    {
-      id: "orange",
-      label: "Orange",
-      value: "#f17950",
-    },
-  ],
+
   space: [
     {
-      id: "sections-spacing",
-      label: "Sections spacing",
+      id: 'containerMargin.default',
       value: {
-        "@2xl": 96,
-        "@xl": 64,
-        "@lg": 40,
-        "@xs": 36,
-      },
+        '@initial': 96,
+        '@xxl': 96,
+        '@xl': 80,
+        '@lg': 60,
+        '@md': 40,
+        '@sm': 24,
+        '@xs': 24
+      }
     },
     {
-      id: "containerMargin.default",
+      id: 'containerMargin.large',
       value: {
-        "@lg": "5vw",
-        "@xs": 24,
-      },
+        '@initial': 384,
+        '@xxl': 384,
+        '@xl': 280,
+        '@lg': 160,
+        '@md': 40,
+        '@sm': 24,
+        '@xs': 24
+      }
     },
+    {
+      id: 'containerMargin.medium',
+      value: {
+        '@initial': 192,
+        '@xxl': 192,
+        '@xl': 160,
+        '@lg': 92,
+        '@md': 40,
+        '@sm': 24,
+        '@xs': 24
+      }
+    }
   ],
+
   containerWidths: [
     {
       id: "small",
       value: 800,
     },
   ],
+
   components: [
     {
       id: "CustomComponent",
@@ -127,32 +216,49 @@ export const shopstoryBaseConfig: Config = {
       type: "card",
       schema: [
         {
-          prop: "hasOverlay",
-          label: "Has overlay",
-          type: "boolean",
+          prop: 'product',
+          label: 'Product',
+          type: 'resource',
+          resourceType: 'product'
         },
         {
-          prop: "product",
-          label: "Product",
-          type: "resource",
-          resourceType: "product",
+          prop: 'relatedProductsMode',
+          label: 'Related products - mode',
+          type: 'select',
+          options: [
+            {
+              label: 'Off',
+              value: 'disabled'
+            },
+            {
+              label: 'On',
+              value: 'enabled'
+            },
+            {
+              label: 'On hover',
+              value: 'onHover'
+            }
+          ]
         },
+        {
+          prop: 'withBackdrop',
+          label: 'Backdrop',
+          type: 'boolean'
+        }
       ],
     },
   ],
   buttons: [
     {
-      id: "Button",
-      label: "Demo Button",
+      id: 'Button',
       schema: [
         {
-          prop: "variant",
-          label: "Variant",
-          type: "select",
-          options: ["dark", "light", "dark-outline", "light-outline"],
-        },
-      ],
-    },
+          prop: 'appearance',
+          type: 'select',
+          options: ['solidBlack', 'solidGrey', 'solidWhite', 'outlineBlack', 'underlinedBlack']
+        }
+      ]
+    }
   ],
   links: [
     {
@@ -186,7 +292,7 @@ export const shopstoryBaseConfig: Config = {
     product: {
       fetch: async (resources) => {
         const ids = resources.map((resource) => resource.id);
-        const products = await MockProductsService.getProductsByIds(ids);
+        const products = await fetchProductsByIds(ids, { includeRelated: true });
 
         return resources.map((resource) => ({
           ...resource,
@@ -196,15 +302,16 @@ export const shopstoryBaseConfig: Config = {
       widget: {
         type: "item-picker",
         getItems: async (query) => {
-          const products = await MockProductsService.searchProducts(query);
+          const products = await fetchProducts(query);
+
           return products.map((product) => ({
             id: product.id,
             title: product.title,
-            thumbnail: product.image,
+            thumbnail: product.primaryImage?.mediaObject?.src,
           }));
         },
         getItemById: async (id) => {
-          const product = await MockProductsService.getProductById(id);
+          const product = await fetchProductById(id);
           if (!product) {
             throw new Error("can't find product");
           }
@@ -212,7 +319,7 @@ export const shopstoryBaseConfig: Config = {
           return {
             id: product.id,
             title: product.title,
-            thumbnail: product.image,
+            thumbnail: product.primaryImage?.mediaObject?.src,
           };
         },
       },

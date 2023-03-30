@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "@types/node": "18.11.9",
+    "graphql-request": "^5.2.0",
     "postcss-custom-media": "8.0.2",
     "postcss-mixins": "^9.0.4",
     "postcss-nested": "^6.0.0",

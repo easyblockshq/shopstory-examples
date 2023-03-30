@@ -4,7 +4,7 @@ import { removeEdges } from '../../utils/removeEdges'
 
 async function fetchAllCollectionHandles() {
   const query = async () => {
-    const data = await fetchShopify(fetchCollectionsHandlesQuery, {})
+    const data: any = await fetchShopify(fetchCollectionsHandlesQuery, {})
 
     return removeEdges(data.collections).map((collection: any) => ({ handle: collection.handle }))
   }
