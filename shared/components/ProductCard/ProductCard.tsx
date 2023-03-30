@@ -10,9 +10,12 @@ const ProductCard: FC<{
   relatedProductsMode: "enabled" | "disabled" | "onHover";
   withBackdrop: Boolean;
 }> = ({ product, relatedProductsMode, withBackdrop: withBackdrop }) => {
-  const hasRelatedProducts = product.relatedProducts && product.relatedProducts?.length > 1;
-  const shouldShowRelatedProducts = hasRelatedProducts && relatedProductsMode === "enabled";
-  const shouldShowRelatedProductsOnHover = hasRelatedProducts && relatedProductsMode === "onHover"
+  const hasRelatedProducts =
+    product.relatedProducts && product.relatedProducts?.length > 1;
+  const shouldShowRelatedProducts =
+    hasRelatedProducts && relatedProductsMode === "enabled";
+  const shouldShowRelatedProductsOnHover =
+    hasRelatedProducts && relatedProductsMode === "onHover";
 
   let relatedProductsClassName = "";
   if (shouldShowRelatedProducts) {
@@ -23,7 +26,7 @@ const ProductCard: FC<{
 
   return (
     <div className={`${styles.wrapper} ${relatedProductsClassName}`}>
-      <Link href={"/products/" + product.handle}>
+      <Link href={"/products/" + product.handle} legacyBehavior>
         <a>
           <div
             className={[

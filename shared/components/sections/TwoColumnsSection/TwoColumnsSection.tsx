@@ -1,15 +1,15 @@
-import styles from './TwoColumnsSection.module.css'
-import { Button } from '../../Button/Button'
-import Link from 'next/link'
+import styles from "./TwoColumnsSection.module.css";
+import { Button } from "../../Button/Button";
+import Link from "next/link";
 
 export type TwoColumnsSectionProps = {
-  leftText: string
-  rightText: string
+  leftText: string;
+  rightText: string;
   button?: {
-    url: string
-    label: string
-  }
-}
+    url: string;
+    label: string;
+  };
+};
 
 export const TwoColumnsSection: React.FC<TwoColumnsSectionProps> = (props) => {
   return (
@@ -23,8 +23,8 @@ export const TwoColumnsSection: React.FC<TwoColumnsSectionProps> = (props) => {
           <div className={styles.rightText}>{props.rightText}</div>
           {props.button && (
             <div className={styles.buttonWrapper}>
-              <Link href={props.button.url} passHref={true}>
-                <Button appearance={'outlineBlack'} as={'a'}>
+              <Link href={props.button.url} passHref legacyBehavior>
+                <Button appearance={"outlineBlack"} as={"a"}>
                   {props.button.label}
                 </Button>
               </Link>
@@ -33,5 +33,5 @@ export const TwoColumnsSection: React.FC<TwoColumnsSectionProps> = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

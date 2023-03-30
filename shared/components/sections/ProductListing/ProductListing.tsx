@@ -140,7 +140,7 @@ const ProductListing: FC<PLPProps> = ({ ShopstoryProvider, ...props }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.heading}>
-          <Link href={"/category/all"}>
+          <Link href={"/category/all"} legacyBehavior>
             <a className={styles.title}>All</a>
           </Link>
           <h1 className={styles.description}>{props.collection.title}</h1>
