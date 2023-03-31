@@ -18,4 +18,27 @@ export const shopstoryConfig: Config = {
       token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
     }),
   ],
+  components: [
+    ...(shopstoryBaseConfig.components ?? []),
+    {
+      id: "CustomSection",
+      schema: [
+        {
+          prop: "section",
+          type: "resource",
+          label: "Custom section",
+          resourceType: "sanity.document",
+          params: {
+            documentType: "shopstoryBlock",
+          },
+          transform: (document, { shopstoryClient, locale }) => {
+            return shopstoryClient.add(
+              JSON.parse(document.shopstory[locale]).content
+            );
+          },
+        },
+      ],
+      type: "section",
+    },
+  ],
 };
