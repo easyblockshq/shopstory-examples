@@ -11,7 +11,7 @@ import { ReactNode } from "react";
 
 const NextLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
-    <Link href={values.pagePath} passHref={true}>
+    <Link href={values.pagePath} passHref={true} legacyBehavior={true}>
       <Component {...componentProps} />
     </Link>
   );
