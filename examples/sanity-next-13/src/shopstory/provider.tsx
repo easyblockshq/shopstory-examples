@@ -29,6 +29,11 @@ export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
       components={{
         CustomComponent,
         ProductCard,
+        CustomSection: ({ section }) => {
+          console.log(section);
+
+          return <div>test</div>;
+        },
       }}
       buttons={{
         Button,

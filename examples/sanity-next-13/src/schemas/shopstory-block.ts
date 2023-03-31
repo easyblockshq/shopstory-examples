@@ -1,7 +1,7 @@
 import { defineType, defineField } from "sanity";
 
 export default defineType({
-  name: "shopstory-block",
+  name: "shopstoryBlock",
   title: "Shopstory Block",
   type: "document",
   fields: [
