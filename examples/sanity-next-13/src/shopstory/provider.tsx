@@ -1,4 +1,9 @@
-import { ShopstoryProvider, ImageProps, ShopstoryLink } from "@shopstory/react";
+import {
+  ShopstoryProvider,
+  ImageProps,
+  ShopstoryLink,
+  Shopstory,
+} from "@shopstory/react";
 
 import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
@@ -30,9 +35,7 @@ export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
         CustomComponent,
         ProductCard,
         CustomSection: ({ section }) => {
-          console.log(section);
-
-          return <div>test</div>;
+          return <Shopstory content={section} />;
         },
       }}
       buttons={{
