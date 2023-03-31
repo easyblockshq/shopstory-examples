@@ -1,5 +1,4 @@
 import CartIcon from "../icons/CartIcon";
-// import SearchIcon from '../../icons/SearchIcon'
 import { Button } from "../Button/Button";
 import styles from "./header.module.css";
 import Link from "next/link";
@@ -70,13 +69,15 @@ const Header = () => {
         </div>
 
         <div className={styles.brand}>
-          <Link href={`/`}>Demo store.</Link>
+          <Link href={`/`} legacyBehavior>
+            <a>Demo store.</a>
+          </Link>
         </div>
 
         <div className={styles.nav}>
           {topNav.map((navItem, i) => {
             return (
-              <Link href={navItem.url} passHref key={i}>
+              <Link href={navItem.url} passHref legacyBehavior key={i}>
                 <Button as={"a"}>{navItem.title}</Button>
               </Link>
             );
@@ -114,7 +115,7 @@ const Header = () => {
       <nav className={mobileNavclasses.join(" ")}>
         {topNav.map((navItem, i) => {
           return (
-            <Link href={navItem.url} passHref key={i}>
+            <Link href={navItem.url} passHref legacyBehavior key={i}>
               <Button as={"a"}>{navItem.title}</Button>
             </Link>
           );

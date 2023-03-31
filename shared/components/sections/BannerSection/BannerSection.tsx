@@ -27,7 +27,7 @@ export const BannerSection: React.FC<BannerSectionProps> = (props) => {
           <div className={styles.description}>{props.description}</div>
           {props.button && (
             <div className={styles.button}>
-              <Link href={props.button.url} passHref={true}>
+              <Link href={props.button.url} passHref={true} legacyBehavior={true}>
                 <Button appearance={"solidBlack"} as={"a"}>
                   {props.button.label}
                 </Button>

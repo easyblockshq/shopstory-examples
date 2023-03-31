@@ -1,13 +1,20 @@
 import React from "react";
 import styles from "./Button.module.css";
-import {ShopstoryButton} from "@shopstory/react";
+import { ShopstoryButton } from "@shopstory/react";
 
 type ButtonProps = {
-  appearance?: "naked" | "solidBlack" | "solidWhite" | "solidGrey" | "outlineBlack" | "underlinedBlack" | "extraSmall";
+  appearance?:
+    | "naked"
+    | "solidBlack"
+    | "solidWhite"
+    | "solidGrey"
+    | "outlineBlack"
+    | "underlinedBlack"
+    | "extraSmall";
   size?: "standard" | "small" | "medium";
 };
 
-export const Button : ShopstoryButton<ButtonProps> = (props) => {
+export const Button: ShopstoryButton<ButtonProps> = (props) => {
   const {
     children,
     as,
@@ -42,4 +49,5 @@ export const Button : ShopstoryButton<ButtonProps> = (props) => {
   const tag = props.as ?? "button";
 
   return React.createElement(tag, {...restProps, className: classes.join(" ")}, label ?? children);
+
 };
