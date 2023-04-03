@@ -28,9 +28,9 @@ importers:
 
   examples/contentful-gatsby-4:
     specifiers:
-      '@shopstory/contentful': ^1.0.0-rc.7
-      '@shopstory/core': ^1.0.0-rc.7
-      '@shopstory/react': ^1.0.0-rc.7
+      '@shopstory/contentful': ^1.0.0-rc.8
+      '@shopstory/core': ^1.0.0-rc.8
+      '@shopstory/react': ^1.0.0-rc.8
       '@types/react': 18.0.31
       '@types/react-dom': ^17
       contentful: ^9.2.13
@@ -44,9 +44,9 @@ importers:
       react-dom: 17.0.2
       shared: workspace:../../shared
     dependencies:
-      '@shopstory/contentful': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
-      '@shopstory/react': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/contentful': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
+      '@shopstory/react': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
       contentful: 9.3.5
       gatsby: 4.24.8_sfoxds7t5ydpegc3knd667wn6m
       gatsby-plugin-image: 2.24.0_7xvwnmfsrzv33leu54btuohidy
@@ -63,9 +63,9 @@ importers:
 
   examples/contentful-next-12:
     specifiers:
-      '@shopstory/contentful': ^1.0.0-rc.7
-      '@shopstory/core': ^1.0.0-rc.7
-      '@shopstory/react': ^1.0.0-rc.7
+      '@shopstory/contentful': ^1.0.0-rc.8
+      '@shopstory/core': ^1.0.0-rc.8
+      '@shopstory/react': ^1.0.0-rc.8
       '@types/react': 18.0.31
       '@types/react-dom': ^17
       contentful: ^9.2.13
@@ -77,9 +77,9 @@ importers:
       react-dom: 17.0.2
       shared: workspace:../../shared
     dependencies:
-      '@shopstory/contentful': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
-      '@shopstory/react': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/contentful': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
+      '@shopstory/react': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
       contentful: 9.3.5
       next: 12.3.4_sfoxds7t5ydpegc3knd667wn6m
       next-transpile-modules: 10.0.0
@@ -95,10 +95,10 @@ importers:
   examples/contentstack-next-12:
     specifiers:
       '@contentstack/live-preview-utils': 1.2.1
-      '@shopstory/contentstack': ^1.0.0-rc.7
-      '@shopstory/core': ^1.0.0-rc.7
-      '@shopstory/react': ^1.0.0-rc.7
-      '@shopstory/shopify': ^1.0.0-rc.7
+      '@shopstory/contentstack': ^1.0.0-rc.8
+      '@shopstory/core': ^1.0.0-rc.8
+      '@shopstory/react': ^1.0.0-rc.8
+      '@shopstory/shopify': ^1.0.0-rc.8
       '@types/react': 18.0.31
       '@types/react-dom': ^17
       contentstack: 3.15.5
@@ -111,10 +111,10 @@ importers:
       shared: workspace:../../shared
     dependencies:
       '@contentstack/live-preview-utils': 1.2.1
-      '@shopstory/contentstack': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
-      '@shopstory/react': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
-      '@shopstory/shopify': 1.0.0-rc.7_react@17.0.2
+      '@shopstory/contentstack': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
+      '@shopstory/react': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/shopify': 1.0.0-rc.8_react@17.0.2
       contentstack: 3.15.5
       next: 12.3.4_sfoxds7t5ydpegc3knd667wn6m
       react: 17.0.2
@@ -133,9 +133,9 @@ importers:
       '@sanity/types': ^3.8.1
       '@sanity/ui': ^1.3.0
       '@sanity/vision': ^3.8.1
-      '@shopstory/core': 1.0.0-rc.5
-      '@shopstory/react': ^1.0.0-rc.7
-      '@shopstory/sanity': ^1.0.0-rc.7
+      '@shopstory/core': ^1.0.0-rc.8
+      '@shopstory/react': ^1.0.0-rc.8
+      '@shopstory/sanity': ^1.0.0-rc.8
       '@types/node': 18.15.11
       '@types/react': 18.0.31
       '@types/react-dom': 18.0.11
@@ -156,9 +156,9 @@ importers:
       '@sanity/types': 3.8.1
       '@sanity/ui': 1.3.0_naxdq4ftv6hnbklxoymdh4kece
       '@sanity/vision': 3.8.1_naxdq4ftv6hnbklxoymdh4kece
-      '@shopstory/core': 1.0.0-rc.5_react@18.2.0
-      '@shopstory/react': 1.0.0-rc.7_7i5myeigehqah43i5u7wbekgba
-      '@shopstory/sanity': 1.0.0-rc.7_chmvty62453ghot3m4nnfi2fse
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
+      '@shopstory/react': 1.0.0-rc.8_7i5myeigehqah43i5u7wbekgba
+      '@shopstory/sanity': 1.0.0-rc.8_chmvty62453ghot3m4nnfi2fse
       '@types/node': 18.15.11
       '@types/react': 18.0.31
       '@types/react-dom': 18.0.11
@@ -177,8 +177,8 @@ importers:
 
   shared:
     specifiers:
-      '@shopstory/core': ^1.0.0-rc.7
-      '@shopstory/react': ^1.0.0-rc.7
+      '@shopstory/core': ^1.0.0-rc.8
+      '@shopstory/react': ^1.0.0-rc.8
       '@types/react': ^18.0.31
       '@types/react-dom': ^18.0.11
       '@types/react-modal': ^3.13.1
@@ -187,8 +187,8 @@ importers:
       react-dom: ^18.2.0
       react-modal: ^3.16.1
     dependencies:
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
-      '@shopstory/react': 1.0.0-rc.7_biqbaboplfbrettd7655fr4n2y
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
+      '@shopstory/react': 1.0.0-rc.8_biqbaboplfbrettd7655fr4n2y
       next: 12.3.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4080,8 +4080,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@shopstory/contentful/1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-P12Ci/YMykelUaFWE1CSpcGllwwbvLDkxDaTdy7Cr8A1a8mRXxXnFiPiFaWvUOH6UsZUWcFjhjeiqInPHL+1vw==}
+  /@shopstory/contentful/1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-vQ226mgxoAsQOowVWKszPXjYEEqxqaDnOjfTDUbtql0g9rZfpV3f4YhsCTa60GbXHdmvrDHZssZNvp+ikMlMUQ==}
     peerDependencies:
       react: '>= 16.8'
       react-dom: '>= 16.8'
@@ -4091,7 +4091,7 @@ packages:
       '@contentful/forma-36-fcss': 0.3.4
       '@contentful/forma-36-react-components': 3.100.3_sfoxds7t5ydpegc3knd667wn6m
       '@contentful/forma-36-tokens': 0.11.1
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
       contentful: 9.3.5
       contentful-management: 10.31.4
       lz-string: 1.5.0
@@ -4103,13 +4103,13 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/contentstack/1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-Kkc2mgi5HTp02zDqu/QIIiv8RCiRnD92d/iLXAYdbWP8qoWcMXiGJXQFQi4kurA2yaZ9hVTdStF8xOjRgS3d/Q==}
+  /@shopstory/contentstack/1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-eJaYMfS+Jl153iI8ScAoucA/QjhlI9m1EAFj4N+No1awAVy6tAKSQWFZUtKHQr3IVRDnFmcRSJkMgk9VdMFY/g==}
     peerDependencies:
       react: '>=16.8 <18'
       react-dom: '>=16.8 <18'
     dependencies:
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
       contentstack: 3.15.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -4117,20 +4117,8 @@ packages:
       - encoding
     dev: false
 
-  /@shopstory/core/1.0.0-rc.5_react@18.2.0:
-    resolution: {integrity: sha512-w8BZlOuzPscdykWj08xrsWv07etCXQOteOz+hD8hEQc8mFnqK/TdbTkTvOh0W82yeOqqhZmySUeOg1h2VcdaBA==}
-    peerDependencies:
-      react: '>= 16.8'
-    dependencies:
-      '@babel/runtime': 7.21.0
-      crypto-js: 4.1.1
-      lodash: 4.17.21
-      react: 18.2.0
-      type-fest: 3.7.2
-    dev: false
-
-  /@shopstory/core/1.0.0-rc.7_react@17.0.2:
-    resolution: {integrity: sha512-2fMqyoizM337kvqrTcnNUMbqyYkCgMEKLc1i+6EFGgNqsfW0NMbXKkUsMyE/0zNAO5f0g9HGPcYfNu4ccsdPoA==}
+  /@shopstory/core/1.0.0-rc.8_react@17.0.2:
+    resolution: {integrity: sha512-CT1MExiNePi+3TDIhp99wXVqH+MHALNJytJIZVnveEfXBehOdqc/h1BzVmBV4qaOFASm5ZVwCf5GulDMIVNUAg==}
     peerDependencies:
       react: '>= 16.8'
     dependencies:
@@ -4141,8 +4129,8 @@ packages:
       type-fest: 3.7.2
     dev: false
 
-  /@shopstory/core/1.0.0-rc.7_react@18.2.0:
-    resolution: {integrity: sha512-2fMqyoizM337kvqrTcnNUMbqyYkCgMEKLc1i+6EFGgNqsfW0NMbXKkUsMyE/0zNAO5f0g9HGPcYfNu4ccsdPoA==}
+  /@shopstory/core/1.0.0-rc.8_react@18.2.0:
+    resolution: {integrity: sha512-CT1MExiNePi+3TDIhp99wXVqH+MHALNJytJIZVnveEfXBehOdqc/h1BzVmBV4qaOFASm5ZVwCf5GulDMIVNUAg==}
     peerDependencies:
       react: '>= 16.8'
     dependencies:
@@ -4153,14 +4141,14 @@ packages:
       type-fest: 3.7.2
     dev: false
 
-  /@shopstory/nocms/1.0.0-rc.7_7i5myeigehqah43i5u7wbekgba:
-    resolution: {integrity: sha512-3sfT8cRIvmX8rlLDYzDJTF79ZU8kpLyJKCZkK8hTBvP9LbaaXCQ/BbQDPvWwnjuRgsaedLaL+hRE1xGGlaLsnA==}
+  /@shopstory/nocms/1.0.0-rc.8_7i5myeigehqah43i5u7wbekgba:
+    resolution: {integrity: sha512-f4WyKMEXzeGrnlGCMXCes1D7ZrSGlWVres6ZkBG5eNSEvL5jqTdDlH0NLEnaxPLC4S4zxzpokW238NyC2D7qDg==}
     peerDependencies:
       react: '>= 16.8'
       react-dom: '>= 16.8'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
       contentful: 9.3.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4171,14 +4159,14 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/nocms/1.0.0-rc.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-3sfT8cRIvmX8rlLDYzDJTF79ZU8kpLyJKCZkK8hTBvP9LbaaXCQ/BbQDPvWwnjuRgsaedLaL+hRE1xGGlaLsnA==}
+  /@shopstory/nocms/1.0.0-rc.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-f4WyKMEXzeGrnlGCMXCes1D7ZrSGlWVres6ZkBG5eNSEvL5jqTdDlH0NLEnaxPLC4S4zxzpokW238NyC2D7qDg==}
     peerDependencies:
       react: '>= 16.8'
       react-dom: '>= 16.8'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
       contentful: 9.3.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4189,14 +4177,14 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/nocms/1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-3sfT8cRIvmX8rlLDYzDJTF79ZU8kpLyJKCZkK8hTBvP9LbaaXCQ/BbQDPvWwnjuRgsaedLaL+hRE1xGGlaLsnA==}
+  /@shopstory/nocms/1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-f4WyKMEXzeGrnlGCMXCes1D7ZrSGlWVres6ZkBG5eNSEvL5jqTdDlH0NLEnaxPLC4S4zxzpokW238NyC2D7qDg==}
     peerDependencies:
       react: '>= 16.8'
       react-dom: '>= 16.8'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
       contentful: 9.3.5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -4207,15 +4195,15 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/react/1.0.0-rc.7_7i5myeigehqah43i5u7wbekgba:
-    resolution: {integrity: sha512-OacLABY1wCWUxWhJUXF/QK0pTYws2NBBW3hRXr0AEMEWa/hpRci0E9T2o2IuASY1EhZiN+n+UHdbc51ysG/XGQ==}
+  /@shopstory/react/1.0.0-rc.8_7i5myeigehqah43i5u7wbekgba:
+    resolution: {integrity: sha512-wgZAEsShyBfm9ydTd38zUWuMLMW3kClmE0Nv0YmBj7bfwyJ+IDh58fLCH8T6A+paLpBr8qRa2p05EPnnRdgnpQ==}
     peerDependencies:
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
-      '@shopstory/nocms': 1.0.0-rc.7_7i5myeigehqah43i5u7wbekgba
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
+      '@shopstory/nocms': 1.0.0-rc.8_7i5myeigehqah43i5u7wbekgba
       '@stitches/core': 1.2.8
       lodash: 4.17.21
       react: 18.2.0
@@ -4225,15 +4213,15 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/react/1.0.0-rc.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-OacLABY1wCWUxWhJUXF/QK0pTYws2NBBW3hRXr0AEMEWa/hpRci0E9T2o2IuASY1EhZiN+n+UHdbc51ysG/XGQ==}
+  /@shopstory/react/1.0.0-rc.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-wgZAEsShyBfm9ydTd38zUWuMLMW3kClmE0Nv0YmBj7bfwyJ+IDh58fLCH8T6A+paLpBr8qRa2p05EPnnRdgnpQ==}
     peerDependencies:
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
-      '@shopstory/nocms': 1.0.0-rc.7_biqbaboplfbrettd7655fr4n2y
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
+      '@shopstory/nocms': 1.0.0-rc.8_biqbaboplfbrettd7655fr4n2y
       '@stitches/core': 1.2.8
       lodash: 4.17.21
       react: 18.2.0
@@ -4243,15 +4231,15 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/react/1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-OacLABY1wCWUxWhJUXF/QK0pTYws2NBBW3hRXr0AEMEWa/hpRci0E9T2o2IuASY1EhZiN+n+UHdbc51ysG/XGQ==}
+  /@shopstory/react/1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-wgZAEsShyBfm9ydTd38zUWuMLMW3kClmE0Nv0YmBj7bfwyJ+IDh58fLCH8T6A+paLpBr8qRa2p05EPnnRdgnpQ==}
     peerDependencies:
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
-      '@shopstory/nocms': 1.0.0-rc.7_sfoxds7t5ydpegc3knd667wn6m
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
+      '@shopstory/nocms': 1.0.0-rc.8_sfoxds7t5ydpegc3knd667wn6m
       '@stitches/core': 1.2.8
       lodash: 4.17.21
       react: 17.0.2
@@ -4261,8 +4249,8 @@ packages:
       - react-is
     dev: false
 
-  /@shopstory/sanity/1.0.0-rc.7_chmvty62453ghot3m4nnfi2fse:
-    resolution: {integrity: sha512-q5G9kdxD+Y9mvC7NGqHU8pDZyoiMXdffMNZgwF7qr3W3HWHnx4tCTBMCBdc6+u6cDGQRBxKPZRdcCvkYnneUxg==}
+  /@shopstory/sanity/1.0.0-rc.8_chmvty62453ghot3m4nnfi2fse:
+    resolution: {integrity: sha512-QDywpObQt8c2KhSJLTEGAWkdsx8bW9FV1RCbKIkuRr+yoviTsBe0ldjHWn6F7zD5cVfBwK4moqIp/GO65A3w/A==}
     peerDependencies:
       '@sanity/icons': ^2.0.0
       '@sanity/ui': ^1.3.0
@@ -4276,7 +4264,7 @@ packages:
       '@sanity/icons': 2.2.2_react@18.2.0
       '@sanity/types': 3.8.1
       '@sanity/ui': 1.3.0_naxdq4ftv6hnbklxoymdh4kece
-      '@shopstory/core': 1.0.0-rc.7_react@18.2.0
+      '@shopstory/core': 1.0.0-rc.8_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       sanity: 3.8.1_j34dbas2wufqolbduu7dnm5yna
@@ -4286,11 +4274,11 @@ packages:
       - supports-color
     dev: false
 
-  /@shopstory/shopify/1.0.0-rc.7_react@17.0.2:
-    resolution: {integrity: sha512-WfLrydup/fdVOMAyw6zGWbKIFer1GpfOmLityhClK2aLqbtbeChOILDQFnh/LTXkg3/Tml5oYUfudvK2xaG3GQ==}
+  /@shopstory/shopify/1.0.0-rc.8_react@17.0.2:
+    resolution: {integrity: sha512-rR5FbFEZdaxZalhe4BCvL3H4M4C8aQi5+QZ2UbqfIV3nRq5ZhT93imszaFT32TcFgM2kjJQmm+HtNjUsxpw53A==}
     dependencies:
       '@babel/runtime': 7.21.0
-      '@shopstory/core': 1.0.0-rc.7_react@17.0.2
+      '@shopstory/core': 1.0.0-rc.8_react@17.0.2
       graphql-request: 3.7.0
     transitivePeerDependencies:
       - encoding
