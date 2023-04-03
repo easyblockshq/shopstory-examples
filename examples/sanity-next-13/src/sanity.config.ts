@@ -2,7 +2,7 @@ import { defineConfig } from "sanity";
 import { visionTool } from "@sanity/vision";
 import { deskTool } from "sanity/desk";
 import { schemaTypes } from "./schemas";
-import { shopstoryInput } from "@shopstory/sanity";
+import { shopstory } from "@shopstory/sanity";
 import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
 import {media, mediaAssetSource} from "sanity-plugin-media";
 
@@ -25,7 +25,7 @@ export default defineConfig({
   plugins: [
     deskTool(),
     visionTool(),
-    shopstoryInput({
+    shopstory({
       accessToken:
         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcm9qZWN0X2lkIjoiNGE4NjUwMjktNWQ2Mi00NGRiLTkzYjItNmMwNDQ1NmQ0MzYyIiwianRpIjoiODk0OWE2OTUtZmYwNC00NmQyLTllOGEtNTk1MGZjYWQ5OTBjIiwiaWF0IjoxNjgwMDA2NjIzfQ.GQKKyZU764RSzSZgzWgi--M3YykC9Mx8aqWkGa938pQ",
       canvasUrl: "/shopstory-canvas",
