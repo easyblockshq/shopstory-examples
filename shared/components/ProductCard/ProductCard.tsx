@@ -10,7 +10,6 @@ const ProductCard: FC<{
   relatedProductsMode: "enabled" | "disabled" | "onHover";
   withBackdrop: Boolean;
 }> = ({ product, relatedProductsMode, withBackdrop: withBackdrop }) => {
-
   const hasRelatedProducts =
     product.relatedProducts && product.relatedProducts?.length > 1;
   const shouldShowRelatedProducts =
@@ -66,23 +65,13 @@ const ProductCard: FC<{
                       relatedProduct.color &&
                       relatedProduct.color?.length > 0
                     ) {
-                      return (
-                        <Link
-                          href={"/products/" + relatedProduct.handle}
-                          key={i}
-                          legacyBehavior={true}
-                        >
-                          <a className={relatedLinkClasses.join(" ")}>
-                            {relatedProduct.primaryImage ? (
-                              <Media
-                                media={relatedProduct.primaryImage}
-                                sizes="80px"
-                              />
-                            ) : (
-                              <div className={styles.placeholder}>No image</div>
-                            )}
-                          </a>
-                        </Link>
+                      return relatedProduct.primaryImage ? (
+                        <Media
+                          media={relatedProduct.primaryImage}
+                          sizes="80px"
+                        />
+                      ) : (
+                        <div className={styles.placeholder}>No image</div>
                       );
                     }
                   })}
