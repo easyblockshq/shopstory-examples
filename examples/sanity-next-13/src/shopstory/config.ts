@@ -35,7 +35,7 @@ export const shopstoryConfig: Config = {
             const type = data._type;
 
             if (type === "block_banner") {
-              const ret = {
+              return {
                 type,
                 props: {
                   title: data.title,
@@ -46,8 +46,6 @@ export const shopstoryConfig: Config = {
                   }
                 }
               };
-
-              return ret;
             }
             else if (type === "block_twoColumns") {
               return {
