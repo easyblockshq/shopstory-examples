@@ -17,5 +17,8 @@
     "overrides": {
       "@types/react@^17": "18.0.31"
     }
+  },
+  "scripts": {
+    "nuke": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   }
 }
