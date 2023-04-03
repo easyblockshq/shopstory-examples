@@ -1,8 +1,4 @@
-import {
-  ImageProps,
-  ShopstoryLink,
-  ShopstoryProvider,
-} from "@shopstory/core/react";
+import { ImageProps, ShopstoryLink, ShopstoryProvider } from "@shopstory/react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImageData } from "gatsby-plugin-image";
 import * as React from "react";

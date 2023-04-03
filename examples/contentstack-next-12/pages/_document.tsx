@@ -1,4 +1,4 @@
-import { shopstoryGetStyleTag } from "@shopstory/core/react";
+import { shopstoryGetStyleTag } from "@shopstory/react";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {

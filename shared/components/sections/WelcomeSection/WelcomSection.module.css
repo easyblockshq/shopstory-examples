@@ -1,0 +1,6 @@
+.wrapper {
+  margin-top: 64px;
+  margin-bottom: 64px;
+  @mixin container-standard;
+  @mixin font-body01;
+}

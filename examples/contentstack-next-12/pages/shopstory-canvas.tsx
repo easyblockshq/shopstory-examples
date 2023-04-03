@@ -1,4 +1,4 @@
-import { Canvas } from "@shopstory/core/react";
+import { Canvas } from "@shopstory/react";
 import type { NextPage } from "next";
 import { shopstoryConfig } from "../src/shopstory/config";
 import { DemoShopstoryProvider } from "../src/shopstory/provider";

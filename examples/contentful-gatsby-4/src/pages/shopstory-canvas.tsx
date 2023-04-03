@@ -1,5 +1,5 @@
 import { DemoShopstoryProvider } from "../shopstory/Provider";
-import { Canvas } from "@shopstory/core/react";
+import { Canvas } from "@shopstory/react";
 import React from "react";
 import { shopstoryConfig } from "../shopstory/config";
 

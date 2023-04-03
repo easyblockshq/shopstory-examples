@@ -1,7 +1,7 @@
 import Document, {  Html, Head, Main, NextScript } from 'next/document'
 import React from 'react'
 
-import { shopstoryGetStyleTag } from '@shopstory/core/react'
+import { shopstoryGetStyleTag } from '@shopstory/react'
 
 class MyDocument extends Document {
   render() {

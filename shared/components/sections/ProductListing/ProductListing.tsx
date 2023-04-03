@@ -7,20 +7,20 @@ import {
   PLPProps,
   CollectionFilterValues,
 } from "../../../types";
-import { ProductCard } from "../../common/ProductCard/ProductCard";
+import { ProductCard } from "../../ProductCard/ProductCard";
 import Router, { useRouter } from "next/router";
 import { buildHandle, decomposeHandle } from "../../../utils/collectionsHandle";
-import { Modal } from "../../common/Modal/Modal";
-import { Button } from "../../common/Button/Button";
+import { Modal } from "../../Modal/Modal";
+import { Button } from "../../Button/Button";
 import {
   filterCollection,
   getCollectionColor,
 } from "../../../data/shopify/filterCollection";
-import { ToggleButton } from "../../common/ToggleButton/ToggleButton";
-import { ToggleColorButton } from "../../common/ToggleColorButton/ToggleColorButton";
-import { ToggleRadioButton } from "../../common/ToggleRadioButton/ToggleRadioButton";
+import { ToggleButton } from "../../ToggleButton/ToggleButton";
+import { ToggleColorButton } from "../../ToggleColorButton/ToggleColorButton";
+import { ToggleRadioButton } from "../../ToggleRadioButton/ToggleRadioButton";
 import CloseIcon from "../../icons/CloseIcon";
-import { ShopstoryGrid } from "@shopstory/core/react";
+import { ShopstoryGrid } from "@shopstory/react";
 import Link from "next/link";
 
 const getActiveFiltersCount = (activeFilters: any) => {
@@ -140,7 +140,7 @@ const ProductListing: FC<PLPProps> = ({ ShopstoryProvider, ...props }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.heading}>
-          <Link href={"/category/all"}>
+          <Link href={"/category/all"} legacyBehavior>
             <a className={styles.title}>All</a>
           </Link>
           <h1 className={styles.description}>{props.collection.title}</h1>

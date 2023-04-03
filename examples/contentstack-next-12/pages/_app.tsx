@@ -3,12 +3,13 @@ import type { AppProps } from "next/app";
 import ContentstackLivePreview from "@contentstack/live-preview-utils";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { Footer } from "shared/components/common/Footer/Footer";
-import { Header } from "shared/components/common/Header/Header";
+import { Footer } from "shared/components/Footer/Footer";
+import { Header } from "shared/components/Header/Header";
 import "shared/styles/globals.css";
 import "../public/fonts/style.css";
-import { contentstackParams } from "../src/contentstackParams";
 import "../styles/global.css";
+
+import { contentstackParams } from "../src/contentstackParams";
 
 function MyApp({
   Component,

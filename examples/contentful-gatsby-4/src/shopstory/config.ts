@@ -1,5 +1,5 @@
 import { Config } from "@shopstory/core";
-import { contentfulPlugin } from "@shopstory/core/contentful";
+import { contentfulPlugin } from "@shopstory/contentful";
 import { shopstoryBaseConfig } from "../../../../shared/shopstory/baseConfig";
 
 export const shopstoryConfig: Config = {

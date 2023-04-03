@@ -1,10 +1,8 @@
-import { ShopifyProductColor, ShopifyProductRoom } from '../types'
+import {ShopifyProduct, ShopifyProductColor, ShopifyProductRoom} from '../types'
 import { removeEdges } from './removeEdges'
 
 export const mapProduct = (product: any) => {
-  if (!product) {
-    return null
-  }
+
   const mapMedia = (media: any) => {
     if (media.mediaContentType === 'IMAGE') {
       return {
@@ -77,7 +75,7 @@ export const mapProduct = (product: any) => {
     compareAtPrice
   }
 
-  return {
+  const ret: ShopifyProduct = {
     ...product,
     ...restProduct,
     variants: productVariants.map((variant: any) => ({
@@ -94,4 +92,6 @@ export const mapProduct = (product: any) => {
       productHandle: product.handle
     }))
   }
+
+  return ret;
 }

@@ -1,4 +1,4 @@
-import { ShopstoryClient } from "@shopstory/core/client";
+import { ShopstoryClient } from "@shopstory/core";
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import {
