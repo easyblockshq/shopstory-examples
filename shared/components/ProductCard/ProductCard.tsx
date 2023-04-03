@@ -65,13 +65,17 @@ const ProductCard: FC<{
                       relatedProduct.color &&
                       relatedProduct.color?.length > 0
                     ) {
-                      return relatedProduct.primaryImage ? (
-                        <Media
-                          media={relatedProduct.primaryImage}
-                          sizes="80px"
-                        />
-                      ) : (
-                        <div className={styles.placeholder}>No image</div>
+                      return (
+                        <span className={relatedLinkClasses.join(" ")}>
+                          {relatedProduct.primaryImage ? (
+                            <Media
+                              media={relatedProduct.primaryImage}
+                              sizes="80px"
+                            />
+                          ) : (
+                            <div className={styles.placeholder}>No image</div>
+                          )}
+                        </span>
                       );
                     }
                   })}

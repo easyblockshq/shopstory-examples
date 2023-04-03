@@ -31,8 +31,13 @@ export default defineType({
     }),
     defineField({
       name: "blocks",
-      type: "reference",
-      to: [banner, twoColumns, productsGrid, shopstoryBlock],
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [banner, twoColumns, productsGrid, shopstoryBlock],
+        },
+      ],
     }),
   ],
 });
