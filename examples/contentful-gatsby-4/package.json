@@ -16,9 +16,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@shopstory/core": "^1.0.0-rc.6",
-    "@shopstory/react": "^1.0.0-rc.6",
-    "@shopstory/contentful": "^1.0.0-rc.6",
+    "@shopstory/core": "^1.0.0-rc.7",
+    "@shopstory/react": "^1.0.0-rc.7",
+    "@shopstory/contentful": "^1.0.0-rc.7",
     "contentful": "^9.2.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
