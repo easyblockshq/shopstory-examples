@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-async function fetchShopstoryContentJSONFromCMS(entryId: string, locale: string, preview: boolean) : RawContent {
+async function fetchShopstoryContentJSONFromCMS(entryId: string, locale: string, preview: boolean) : Promise<RawContent> {
   const contentfulClient = createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE!,
     environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT ?? "master",

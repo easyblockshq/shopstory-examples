@@ -4,7 +4,7 @@ import { deskTool } from "sanity/desk";
 import { schemaTypes } from "./schemas";
 import { shopstoryInput } from "@shopstory/sanity";
 import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
-import { media } from "sanity-plugin-media";
+import {media, mediaAssetSource} from "sanity-plugin-media";
 
 if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_SANITY_PROJECT_ID");
@@ -39,6 +39,7 @@ export default defineConfig({
           fallback: "en",
         },
       ],
+      assetSource: mediaAssetSource
     }),
     media(),
   ],
