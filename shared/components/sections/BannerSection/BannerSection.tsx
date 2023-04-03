@@ -6,7 +6,7 @@ import Link from "next/link";
 export type BannerSectionProps = {
   title: string;
   description: string;
-  image: {
+  image?: {
     src: string;
     width?: number;
     height?: number;
@@ -38,14 +38,14 @@ export const BannerSection: React.FC<BannerSectionProps> = (props) => {
 
         <div className={styles.imageContainer}>
           <div className={styles.imageWrapper}>
-            <Image
+            { props.image && <Image
               src={props.image.src}
               width={props.image.width}
               height={props.image.height}
               layout={"fill"}
               objectFit={"cover"}
               alt={props.image.title}
-            />
+            /> }
           </div>
         </div>
       </div>

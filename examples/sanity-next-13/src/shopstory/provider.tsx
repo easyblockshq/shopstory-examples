@@ -13,6 +13,8 @@ import { AlertAction } from "shared/actions/AlertAction";
 import Link from "next/link";
 import NextImage from "next/image";
 import { ReactNode } from "react";
+import {BannerSection} from "shared/components/sections/BannerSection/BannerSection";
+import {TwoColumnsSection} from "shared/components/sections/TwoColumnsSection/TwoColumnsSection";
 
 const NextLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
@@ -26,6 +28,17 @@ const Image: React.FC<ImageProps> = (props) => {
   return <NextImage src={props.src} alt={props.alt} layout={"fill"} />;
 };
 
+const SanitySection : React.FC<{ section: { type: string, props: any } }> = ({ section: { type, props }}) => {
+  if (type === "block_banner") {
+    return <BannerSection {...props} />
+  }
+  else if (type === "block_twoColumns") {
+    return <TwoColumnsSection {...props} />
+  }
+
+  throw new Error("wrong type of block provided to SanitySection");
+}
+
 export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
@@ -34,9 +47,7 @@ export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
       components={{
         CustomComponent,
         ProductCard,
-        CustomSection: ({ section }) => {
-          return <Shopstory content={section} />;
-        },
+        SanitySection
       }}
       buttons={{
         Button,

@@ -21,21 +21,52 @@ export const shopstoryConfig: Config = {
   components: [
     ...(shopstoryBaseConfig.components ?? []),
     {
-      id: "CustomSection",
+      id: "SanitySection",
       schema: [
         {
           prop: "section",
           type: "resource",
-          label: "Custom section",
+          label: "Sanity Section",
           resourceType: "sanity.document",
           params: {
-            documentType: "shopstoryBlock",
+            documentType: ["block_banner", "block_twoColumns"],
           },
-          transform: (document, { shopstoryClient, locale }) => {
-            return shopstoryClient.add(
-              JSON.parse(document.shopstory[locale]).content
-            );
-          },
+          transform: (data) => {
+            const type = data._type;
+
+            if (type === "block_banner") {
+              const ret = {
+                type,
+                props: {
+                  title: data.title,
+                  description: data.description,
+                  button: {
+                    label: data.buttonLabel,
+                    url: data.buttonLink
+                  }
+                }
+              };
+
+              return ret;
+            }
+            else if (type === "block_twoColumns") {
+              return {
+                type,
+                props: {
+                  leftText: data.leftText,
+                  rightText: data.rightText,
+                  button: data.buttonLabel
+                    ? {
+                      label: data.buttonLabel,
+                      url: data.buttonLink,
+                    }
+                    : null,
+                }
+              };
+            }
+
+            throw new Error("wrong document type selected");
+          }
         },
       ],
       type: "section",
