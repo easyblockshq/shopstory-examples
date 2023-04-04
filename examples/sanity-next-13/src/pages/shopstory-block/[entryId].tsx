@@ -35,7 +35,11 @@ export const getStaticProps: GetStaticProps<
     return { notFound: true };
   }
 
-  const rawContent = await fetchShopstoryContentJSONFromCMS(params.entryId, locale, !!preview);
+  const rawContent = await fetchShopstoryContentJSONFromCMS(
+    params.entryId,
+    locale,
+    !!preview
+  );
 
   const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
     locale,
@@ -50,7 +54,11 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-async function fetchShopstoryContentJSONFromCMS(entryId: string, locale: string, preview: boolean) : Promise<any> {
+async function fetchShopstoryContentJSONFromCMS(
+  entryId: string,
+  locale: string,
+  preview: boolean
+): Promise<any> {
   const sanityClient = createClient({
     apiVersion: "2023-03-30",
     dataset: sanityConfig.dataset,
@@ -59,13 +67,14 @@ async function fetchShopstoryContentJSONFromCMS(entryId: string, locale: string,
     token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
   });
 
+  const entryIdQuery =
+    preview && !entryId.startsWith("drafts.") ? `drafts.${entryId}` : entryId;
+
   const documents = await sanityClient.fetch(
-    `*[_id == "${entryId}"]{"shopstory": shopstory.${locale}}`
+    `*[_id == "${entryIdQuery}"]{"shopstory": shopstory.${locale}}`
   );
 
   return documents[0].shopstory;
 }
-
-
 
 export default ShopstoryBlockPage;
