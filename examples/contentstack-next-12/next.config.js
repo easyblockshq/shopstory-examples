@@ -9,6 +9,7 @@ const nextConfig = {
       "i.picsum.photos",
       "eu-images.contentstack.com",
       "shopstory.s3.eu-central-1.amazonaws.com",
+      "images.ctfassets.net"
     ],
   },
   i18n: {
