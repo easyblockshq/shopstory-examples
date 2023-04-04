@@ -1,10 +1,11 @@
-import { defineConfig } from "sanity";
 import { visionTool } from "@sanity/vision";
-import { deskTool } from "sanity/desk";
-import { schemaTypes } from "./schemas";
 import { shopstory } from "@shopstory/sanity";
+import { SanityDocument, Slug, defineConfig } from "sanity";
+import Iframe from "sanity-plugin-iframe-pane";
+import { media, mediaAssetSource } from "sanity-plugin-media";
+import { DefaultDocumentNodeResolver, deskTool } from "sanity/desk";
 import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
-import {media, mediaAssetSource} from "sanity-plugin-media";
+import { schemaTypes } from "./schemas";
 
 if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_SANITY_PROJECT_ID");
@@ -13,6 +14,43 @@ if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
 if (!process.env.NEXT_PUBLIC_SANITY_DATASET) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_SANITY_DATASET");
 }
+
+function getPreviewUrl(doc: SanityDocument & { slug?: Slug }, baseUrl: string) {
+  if (doc.slug?.current) {
+    return `${window.location.protocol}//${window.location.host}/api/preview?page=/${baseUrl}/${doc.slug.current}`;
+  }
+
+  return `${window.location.protocol}//${window.location.host}`;
+}
+
+function kebabCase(str: string) {
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/\s+/g, "-")
+    .toLowerCase();
+}
+
+const defaultDocumentNode: DefaultDocumentNodeResolver = (
+  S,
+  { schemaType }
+) => {
+  switch (schemaType) {
+    case "pageShopstory":
+    case "page":
+      return S.document().views([
+        S.view.form(),
+        S.view
+          .component(Iframe)
+          .options({
+            url: (doc: SanityDocument) =>
+              getPreviewUrl(doc, kebabCase(schemaType)),
+          })
+          .title("Preview"),
+      ]);
+    default:
+      return S.document().views([S.view.form()]);
+  }
+};
 
 export default defineConfig({
   basePath: "/studio",
@@ -23,7 +61,9 @@ export default defineConfig({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
 
   plugins: [
-    deskTool(),
+    deskTool({
+      defaultDocumentNode,
+    }),
     visionTool(),
     shopstory({
       accessToken:
@@ -39,7 +79,7 @@ export default defineConfig({
           fallback: "en",
         },
       ],
-      assetSource: mediaAssetSource
+      assetSource: mediaAssetSource,
     }),
     media(),
   ],
