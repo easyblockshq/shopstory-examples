@@ -1,5 +1,5 @@
-import { Shopstory } from "@shopstory/react";
-import { ComponentType, ReactNode } from "react";
+import { Shopstory, ShopstoryProvider } from "@shopstory/react";
+import { ComponentPropsWithoutRef, ComponentType, ReactNode } from "react";
 import { BannerSection } from "../sections/BannerSection/BannerSection";
 import { ProductsGridSection } from "../sections/ProductsGridSection/ProductsGridSection";
 import { TwoColumnsSection } from "../sections/TwoColumnsSection/TwoColumnsSection";
@@ -7,7 +7,9 @@ import { PageWrapper } from "../PageWrapper/PageWrapper";
 
 type PageProviderOptions = {
   beforeContent: ReactNode;
-  ShopstoryProvider: ComponentType;
+  ShopstoryProvider: ComponentType<
+    ComponentPropsWithoutRef<typeof ShopstoryProvider>
+  >;
 };
 
 type PageProps = {

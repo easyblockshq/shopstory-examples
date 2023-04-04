@@ -1,16 +1,12 @@
-import {
-  ShopstoryProvider,
-  ImageProps,
-  ShopstoryLink,
-} from "@shopstory/react";
+import { ShopstoryProvider, ImageProps, ShopstoryLink } from "@shopstory/react";
 
-import { Button } from "shared/components/common/Button/Button";
-import { ProductCard } from "shared/components/common/ProductCard/ProductCard";
+import { Button } from "shared/components/Button/Button";
+import { ProductCard } from "shared/components/ProductCard/ProductCard";
 import { AlertAction } from "shared/actions/AlertAction";
 
 import Link from "next/link";
 import NextImage from "next/image";
-import { forwardRef } from "react";
+import { ReactNode, forwardRef } from "react";
 import type { ShopstoryButtonProps } from "@shopstory/react";
 
 const ShopstoryButton = forwardRef<
@@ -38,7 +34,9 @@ const Image: React.FC<ImageProps> = (props) => {
   return <NextImage src={props.src} alt={props.alt} layout={"fill"} />;
 };
 
-export const DemoShopstoryProvider: React.FC = ({ children }) => {
+export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   return (
     <ShopstoryProvider
       components={{

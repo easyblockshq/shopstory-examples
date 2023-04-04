@@ -16,7 +16,9 @@ const fetchProductByHandle = async (handle: string) => {
   }
 
   const product = mapProduct(data.productByHandle);
-  const relatedTag = product.tags.find((tag: any) => tag.startsWith("related"));
+  const relatedTag = product.tags!.find((tag: any) =>
+    tag.startsWith("related")
+  );
   const relatedProducts = await fetchProducts("tag:" + relatedTag);
 
   return { ...product, relatedProducts };
