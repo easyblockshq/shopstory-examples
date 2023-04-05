@@ -1,6 +1,5 @@
 import { defineField, defineType } from "sanity";
 import banner from "./blocks/banner";
-import shopstoryBlock from "./shopstory-block";
 import twoColumns from "./blocks/two-columns";
 import productsGrid from "./blocks/products-grid";
 import { pageCommonFields } from "./page-common-fields";
@@ -17,7 +16,7 @@ export default defineType({
       of: [
         {
           type: "reference",
-          to: [banner, twoColumns, productsGrid, shopstoryBlock],
+          to: [banner, twoColumns, productsGrid],
         },
       ],
     }),

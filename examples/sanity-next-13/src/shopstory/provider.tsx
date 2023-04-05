@@ -1,20 +1,14 @@
-import {
-  ShopstoryProvider,
-  ImageProps,
-  ShopstoryLink,
-  Shopstory,
-} from "@shopstory/react";
-
+import { ImageProps, ShopstoryLink, ShopstoryProvider } from "@shopstory/react";
+import NextImage from "next/image";
+import Link from "next/link";
+import { ReactNode } from "react";
+import { AlertAction } from "shared/actions/AlertAction";
 import { Button } from "shared/components/Button/Button";
 import { CustomComponent } from "shared/components/CustomComponent/CustomComponent";
 import { ProductCard } from "shared/components/ProductCard/ProductCard";
-import { AlertAction } from "shared/actions/AlertAction";
-
-import Link from "next/link";
-import NextImage from "next/image";
-import { ReactNode } from "react";
-import {BannerSection} from "shared/components/sections/BannerSection/BannerSection";
-import {TwoColumnsSection} from "shared/components/sections/TwoColumnsSection/TwoColumnsSection";
+import { BannerSection } from "shared/components/sections/BannerSection/BannerSection";
+import { ProductsGridSection } from "shared/components/sections/ProductsGridSection/ProductsGridSection";
+import { TwoColumnsSection } from "shared/components/sections/TwoColumnsSection/TwoColumnsSection";
 
 const NextLink: ShopstoryLink = ({ Component, componentProps, values }) => {
   return (
@@ -28,16 +22,19 @@ const Image: React.FC<ImageProps> = (props) => {
   return <NextImage src={props.src} alt={props.alt} layout={"fill"} />;
 };
 
-const SanitySection : React.FC<{ section: { type: string, props: any } }> = ({ section: { type, props }}) => {
+const SanitySection: React.FC<{ section: { type: string; props: any } }> = ({
+  section: { type, props },
+}) => {
   if (type === "block_banner") {
-    return <BannerSection {...props} />
-  }
-  else if (type === "block_twoColumns") {
-    return <TwoColumnsSection {...props} />
+    return <BannerSection {...props} />;
+  } else if (type === "block_twoColumns") {
+    return <TwoColumnsSection {...props} />;
+  } else if (type === "block_productsGrid") {
+    return <ProductsGridSection {...props} />;
   }
 
-  throw new Error("wrong type of block provided to SanitySection");
-}
+  throw new Error(`Wrong type of block provided to SanitySection`);
+};
 
 export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
   children,
@@ -47,7 +44,7 @@ export const DemoShopstoryProvider: React.FC<{ children: ReactNode }> = ({
       components={{
         CustomComponent,
         ProductCard,
-        SanitySection
+        SanitySection,
       }}
       buttons={{
         Button,
