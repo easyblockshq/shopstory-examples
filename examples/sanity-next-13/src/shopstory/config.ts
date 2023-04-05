@@ -2,7 +2,7 @@ import type { Config } from "@shopstory/core";
 import { sanityPlugin } from "@shopstory/sanity";
 import { shopstoryBaseConfig } from "shared/shopstory/baseConfig";
 import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
-import sanityConfig from "../sanity.config";
+import sanityConfig from "../sanity/sanity.config";
 
 if (!process.env.NEXT_PUBLIC_SANITY_API_TOKEN) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_SANITY_API_TOKEN");
@@ -10,6 +10,9 @@ if (!process.env.NEXT_PUBLIC_SANITY_API_TOKEN) {
 
 export const shopstoryConfig: Config = {
   ...shopstoryBaseConfig,
+  resourceTypes: {
+    ...shopstoryBaseConfig.resourceTypes,
+  },
   plugins: [
     sanityPlugin({
       dataset: sanityConfig.dataset,
@@ -42,12 +45,11 @@ export const shopstoryConfig: Config = {
                   description: data.description,
                   button: {
                     label: data.buttonLabel,
-                    url: data.buttonLink
-                  }
-                }
+                    url: data.buttonLink,
+                  },
+                },
               };
-            }
-            else if (type === "block_twoColumns") {
+            } else if (type === "block_twoColumns") {
               return {
                 type,
                 props: {
@@ -55,16 +57,16 @@ export const shopstoryConfig: Config = {
                   rightText: data.rightText,
                   button: data.buttonLabel
                     ? {
-                      label: data.buttonLabel,
-                      url: data.buttonLink,
-                    }
+                        label: data.buttonLabel,
+                        url: data.buttonLink,
+                      }
                     : null,
-                }
+                },
               };
             }
 
             throw new Error("wrong document type selected");
-          }
+          },
         },
       ],
       type: "section",

@@ -3,9 +3,10 @@ import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { createClient } from "next-sanity";
 import Head from "next/head";
-import sanityConfig from "../../sanity.config";
+import sanityConfig from "../../sanity/sanity.config";
 import { shopstoryConfig } from "../../shopstory/config";
 import { DemoShopstoryProvider } from "../../shopstory/provider";
+import { previewFilter } from "../../sanity/utils";
 
 type PageShopstoryProps = {
   title: string;
@@ -83,7 +84,3 @@ export const getStaticProps: GetStaticProps<
     revalidate: 10,
   };
 };
-
-function previewFilter(preview: boolean | undefined) {
-  return preview ? "" : '&& !(_id in path("drafts.**"))';
-}

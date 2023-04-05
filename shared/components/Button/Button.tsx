@@ -48,6 +48,9 @@ export const Button: ShopstoryButton<ButtonProps> = (props) => {
 
   const tag = props.as ?? "button";
 
-  return React.createElement(tag, {...restProps, className: classes.join(" ")}, label ?? children);
-
+  return React.createElement(
+    tag,
+    { ...restProps, className: classes.join(" ") },
+    label ?? children
+  );
 };

@@ -2,7 +2,7 @@ import { Metadata, RenderableContent, ShopstoryClient } from "@shopstory/core";
 import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { createClient } from "next-sanity";
-import sanityConfig from "../../sanity.config";
+import sanityConfig from "../../sanity/sanity.config";
 import { shopstoryConfig } from "../../shopstory/config";
 import { DemoShopstoryProvider } from "../../shopstory/provider";
 
