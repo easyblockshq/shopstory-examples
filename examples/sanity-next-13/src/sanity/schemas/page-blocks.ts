@@ -3,6 +3,7 @@ import banner from "./blocks/banner";
 import twoColumns from "./blocks/two-columns";
 import productsGrid from "./blocks/products-grid";
 import { pageCommonFields } from "./page-common-fields";
+import shopstoryBlock from "./shopstory-block";
 
 export default defineType({
   name: "pageBlocks",
@@ -16,7 +17,7 @@ export default defineType({
       of: [
         {
           type: "reference",
-          to: [banner, twoColumns, productsGrid],
+          to: [banner, twoColumns, productsGrid, shopstoryBlock],
         },
       ],
     }),

@@ -32,6 +32,10 @@ function previewView(S: StructureBuilder, baseUrl: string) {
     .component(Iframe)
     .options({
       url: (doc: SanityDocument) => getPreviewUrl(doc, baseUrl),
+      reload: {
+        button: true,
+        revision: true,
+      },
     })
     .title("Preview");
 }
@@ -46,7 +50,7 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
         S.view.form(),
         previewView(S, "page-shopstory"),
       ]);
-    case "page":
+    case "pageBlocks":
       return S.document().views([S.view.form(), previewView(S, "page-blocks")]);
     default:
       return S.document().views([S.view.form()]);

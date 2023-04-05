@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps<
     title: string;
     blocks: Array<Record<string, any>>;
   }>(
-    `*[_type == 'page' && slug.current == '${params.slug}'
+    `*[_type == 'pageBlocks' && slug.current == '${params.slug}'
     ${previewFilter(preview)}] | order(_updatedAt desc) [0] {
         title, 
         blocks[]->{
@@ -141,27 +141,27 @@ export const getStaticProps: GetStaticProps<
     sanity: { preview },
   });
 
-  const blocks = document.blocks.map<
-    Promise<PageBlocksProps["blocks"][number]>
-  >((block) => {
-    return new Promise(async (resolve) => {
-      if (block._type === "shopstoryBlock") {
-        const renderableContent = shopstoryClient.add(block.content);
-        const meta = await shopstoryClient.build();
+  const blocks = document.blocks
+    .filter(Boolean)
+    .map<Promise<PageBlocksProps["blocks"][number]>>((block) => {
+      return new Promise(async (resolve) => {
+        if (block._type === "shopstoryBlock") {
+          const renderableContent = shopstoryClient.add(block.content);
+          const meta = await shopstoryClient.build();
 
-        return resolve({
-          type: "shopstoryBlock",
-          props: {
-            renderableContent,
-            meta,
-          },
-        });
-      }
+          return resolve({
+            type: "shopstoryBlock",
+            props: {
+              renderableContent,
+              meta,
+            },
+          });
+        }
 
-      const mappedDocumentBlock = await mapBlockDocumentToSectionProps(block);
-      return resolve(mappedDocumentBlock);
+        const mappedDocumentBlock = await mapBlockDocumentToSectionProps(block);
+        return resolve(mappedDocumentBlock);
+      });
     });
-  });
 
   const mappedBlocks = await Promise.all(blocks);
 
