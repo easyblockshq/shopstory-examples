@@ -136,16 +136,16 @@ export const getStaticProps: GetStaticProps<
     return { notFound: true };
   }
 
-  const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
-    locale,
-    sanity: { preview },
-  });
-
   const blocks = document.blocks
     .filter(Boolean)
     .map<Promise<PageBlocksProps["blocks"][number]>>((block) => {
       return new Promise(async (resolve) => {
         if (block._type === "shopstoryBlock") {
+          const shopstoryClient = new ShopstoryClient(shopstoryConfig, {
+            locale,
+            sanity: { preview },
+          });
+
           const renderableContent = shopstoryClient.add(block.content);
           const meta = await shopstoryClient.build();
 
