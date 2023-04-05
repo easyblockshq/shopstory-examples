@@ -10,10 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@shopstory/core": "^1.0.0-rc.11",
-    "@shopstory/react": "^1.0.0-rc.11",
-    "@shopstory/contentstack": "^1.0.0-rc.11",
-    "@shopstory/shopify": "^1.0.0-rc.11",
+    "@shopstory/core": "^1.0.0-rc.12",
+    "@shopstory/react": "^1.0.0-rc.12",
+    "@shopstory/contentstack": "^1.0.0-rc.12",
+    "@shopstory/shopify": "^1.0.0-rc.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "contentstack": "3.15.5",
