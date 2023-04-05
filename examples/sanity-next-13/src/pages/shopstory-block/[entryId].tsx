@@ -71,10 +71,10 @@ async function fetchShopstoryContentJSONFromCMS(
     preview && !entryId.startsWith("drafts.") ? `drafts.${entryId}` : entryId;
 
   const documents = await sanityClient.fetch(
-    `*[_id == "${entryIdQuery}"]{"shopstory": shopstory.${locale}}`
+    `*[_id == "${entryIdQuery}"]{"content": content.${locale}}`
   );
 
-  return documents[0].shopstory;
+  return documents[0].content;
 }
 
 export default ShopstoryBlockPage;

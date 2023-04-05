@@ -1,25 +1,16 @@
 import { defineField, defineType } from "sanity";
+import {pageCommonFields} from "./page-common-fields";
 
 export default defineType({
   name: "pageShopstory",
-  title: "Page Shopstory",
+  title: "Page (shopstory)",
   type: "document",
   fields: [
+    ...pageCommonFields,
     defineField({
-      name: "title",
-      type: "string",
-      title: "Title",
-    }),
-    defineField({
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "shopstory",
+      name: "content",
       type: "shopstory",
-      title: "Shopstory",
+      title: "Content",
     }),
   ],
 });

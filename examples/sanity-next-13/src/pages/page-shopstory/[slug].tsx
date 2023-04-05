@@ -39,7 +39,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 type PageShopstoryProjection = {
   title: string;
-  shopstory: string;
+  content: string;
 };
 
 export const getStaticProps: GetStaticProps<
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps<
     `*[_type == "pageShopstory" && slug.current == "${params.slug}"
     ${previewFilter(
       preview
-    )}] | order(_updatedAt desc) [0] {title, "shopstory": shopstory.${locale}} `,
+    )}] | order(_updatedAt desc) [0] {title, "content": content.${locale}} `,
     { slug: params.slug, locale }
   );
 
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps<
     locale,
     sanity: { preview },
   });
-  const renderableContent = shopstoryClient.add(document.shopstory);
+  const renderableContent = shopstoryClient.add(document.content);
   const meta = await shopstoryClient.build();
 
   return {

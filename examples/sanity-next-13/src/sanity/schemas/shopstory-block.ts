@@ -7,11 +7,13 @@ export default defineType({
   fields: [
     defineField({
       name: "title",
+      title: "Title",
       type: "string",
     }),
     defineField({
-      name: "shopstory",
-      type: "shopstory",
+      name: "content",
+      title: "Content",
+      type: "shopstory"
     }),
   ],
 });

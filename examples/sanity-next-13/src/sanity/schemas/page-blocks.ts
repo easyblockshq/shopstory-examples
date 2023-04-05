@@ -3,32 +3,14 @@ import banner from "./blocks/banner";
 import shopstoryBlock from "./shopstory-block";
 import twoColumns from "./blocks/two-columns";
 import productsGrid from "./blocks/products-grid";
+import { pageCommonFields } from "./page-common-fields";
 
 export default defineType({
-  name: "page",
-  title: "Page",
+  name: "pageBlocks",
+  title: "Page (blocks)",
   type: "document",
   fields: [
-    defineField({
-      name: "title",
-      type: "string",
-    }),
-    defineField({
-      name: "slug",
-      type: "slug",
-    }),
-    defineField({
-      name: "metaTitle",
-      type: "string",
-    }),
-    defineField({
-      name: "metaDescription",
-      type: "string",
-    }),
-    defineField({
-      name: "metaImage",
-      type: "image",
-    }),
+    ...pageCommonFields,
     defineField({
       name: "blocks",
       type: "array",

@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps<
         blocks[]->{
           _type,
           _type == 'shopstoryBlock' => {
-            "shopstory": shopstory.${locale}
+            "content": content.${locale}
           },
           _type == 'block_banner' => {
             buttonLabel,
@@ -140,7 +140,7 @@ export const getStaticProps: GetStaticProps<
   >((block) => {
     return new Promise(async (resolve, reject) => {
       if (block._type === "shopstoryBlock") {
-        const renderableContent = shopstoryClient.add(block.shopstory);
+        const renderableContent = shopstoryClient.add(block.content);
         const meta = await shopstoryClient.build();
 
         return resolve({
