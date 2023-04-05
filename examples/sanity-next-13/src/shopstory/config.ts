@@ -119,7 +119,6 @@ export const shopstoryConfig: Config = {
     sanityPlugin({
       dataset: sanityConfig.dataset,
       projectId: sanityConfig.projectId,
-      useCdn: false,
       token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
     }),
   ],
