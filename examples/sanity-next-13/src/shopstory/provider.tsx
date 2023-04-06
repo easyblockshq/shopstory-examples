@@ -26,11 +26,11 @@ const SanitySection: React.FC<{ section: { type: string; props: any } }> = ({
   section: { type, props },
 }) => {
   if (type === "block_banner") {
-    return <BannerSection {...props} />;
+    return <BannerSection {...props} disableInternalMargins />;
   } else if (type === "block_twoColumns") {
     return <TwoColumnsSection {...props} />;
   } else if (type === "block_productsGrid") {
-    return <ProductsGridSection {...props} />;
+    return <ProductsGridSection {...props} disableInternalMargins />;
   }
 
   throw new Error(`Wrong type of block provided to SanitySection`);

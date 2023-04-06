@@ -1,11 +1,12 @@
 .wrapper {
-  /*display: grid;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*min-height: 90vh;*/
   margin-top: 64px;
   margin-bottom: 64px;
   @mixin container-standard;
+}
+
+.disableInternalMargins {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .container {
@@ -37,7 +38,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   align-items: flex-start;
 }
 

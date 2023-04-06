@@ -1,12 +1,12 @@
 .wrapper {
-  /*display: grid;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*min-height: 90vh;*/
   @mixin container-standard;
   margin-top: 64px;
   margin-bottom: 64px;
-  /*background-color: var(--color_beige_01)*/
+}
+
+.disableInternalMargins {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .container {

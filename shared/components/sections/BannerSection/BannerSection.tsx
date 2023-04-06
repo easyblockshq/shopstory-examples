@@ -16,18 +16,29 @@ export type BannerSectionProps = {
     url: string;
     label: string;
   };
+  disableInternalMargins?: boolean;
 };
 
 export const BannerSection: React.FC<BannerSectionProps> = (props) => {
+  const wrapperClassNames = [styles.wrapper];
+
+  if (props.disableInternalMargins) {
+    wrapperClassNames.push(styles.disableInternalMargins);
+  }
+
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapperClassNames.join(" ")}>
       <div className={styles.container}>
         <div className={styles.contentContainer}>
           <div className={styles.title}>{props.title}</div>
           <div className={styles.description}>{props.description}</div>
           {props.button && (
             <div className={styles.button}>
-              <Link href={props.button.url} passHref={true} legacyBehavior={true}>
+              <Link
+                href={props.button.url}
+                passHref={true}
+                legacyBehavior={true}
+              >
                 <Button appearance={"solidBlack"} as={"a"}>
                   {props.button.label}
                 </Button>
@@ -38,14 +49,16 @@ export const BannerSection: React.FC<BannerSectionProps> = (props) => {
 
         <div className={styles.imageContainer}>
           <div className={styles.imageWrapper}>
-            { props.image && <Image
-              src={props.image.src}
-              width={props.image.width}
-              height={props.image.height}
-              layout={"fill"}
-              objectFit={"cover"}
-              alt={props.image.title}
-            /> }
+            {props.image && (
+              <Image
+                src={props.image.src}
+                width={props.image.width}
+                height={props.image.height}
+                layout={"fill"}
+                objectFit={"cover"}
+                alt={props.image.title}
+              />
+            )}
           </div>
         </div>
       </div>
