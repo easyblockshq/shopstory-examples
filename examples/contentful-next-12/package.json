@@ -10,9 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@shopstory/core": "^1.0.0-rc.17",
-    "@shopstory/react": "^1.0.0-rc.17",
-    "@shopstory/contentful": "^1.0.0-rc.17",
+    "@shopstory/core": "^1.0.0-rc.18",
+    "@shopstory/react": "^1.0.0-rc.18",
+    "@shopstory/contentful": "^1.0.0-rc.18",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "contentful": "^9.2.13",
