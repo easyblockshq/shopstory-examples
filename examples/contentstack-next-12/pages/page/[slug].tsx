@@ -1,10 +1,12 @@
 import { ShopstoryClient } from "@shopstory/core";
-import { GetServerSideProps, type NextPage } from "next";
+import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
-import {
-  landingPageProvider,
-  type PageProps,
-} from "shared/components/pages/Page";
+import { Fragment } from "react";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
+import { BannerSection } from "shared/components/sections/BannerSection/BannerSection";
+import { ProductsGridSection } from "shared/components/sections/ProductsGridSection/ProductsGridSection";
+import { TwoColumnsSection } from "shared/components/sections/TwoColumnsSection/TwoColumnsSection";
 import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
 import { createContentstackClient } from "../../src/contentstackClient";
 import { contentstackParams } from "../../src/contentstackParams";
@@ -12,15 +14,42 @@ import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
 import { isQueryLivePreviewQuery } from "../../src/utils/isQueryLivePreviewQuery";
 
-const LandingPage: NextPage<PageProps> = landingPageProvider({
-  beforeContent: (
-    <Head>
-      <title>Demo store.</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-  ),
-  ShopstoryProvider: DemoShopstoryProvider,
-});
+type PageProps = {
+  blocks: any[];
+};
+
+function Page(props: PageProps) {
+  return (
+    <Fragment>
+      <Head>
+        <title>Demo store.</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <PageWrapper>
+        {props.blocks.map((block: any, index) => {
+          if (block.type === "blockBanner") {
+            return <BannerSection key={index} {...block.data} />;
+          } else if (block.type === "blockProductsGrid") {
+            return <ProductsGridSection key={index} {...block.data} />;
+          } else if (block.type === "blockTwoColumns") {
+            return <TwoColumnsSection key={index} {...block.data} />;
+          } else if (block.type === "shopstoryBlock") {
+            return (
+              <DemoShopstoryProvider key={index}>
+                <ShopstoryMetadataProvider meta={block.meta}>
+                  <Shopstory content={block.content} />
+                </ShopstoryMetadataProvider>
+              </DemoShopstoryProvider>
+            );
+          } else {
+            throw new Error(`unknown block type: ${block.type}`);
+          }
+        })}
+      </PageWrapper>
+    </Fragment>
+  );
+}
 
 export const getServerSideProps: GetServerSideProps<
   PageProps,
@@ -121,4 +150,4 @@ export const getServerSideProps: GetServerSideProps<
   };
 };
 
-export default LandingPage;
+export default Page;

@@ -1,24 +1,37 @@
-import { ShopstoryClient } from "@shopstory/core";
+import { Metadata, RenderableContent, ShopstoryClient } from "@shopstory/core";
+import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import {
-  homePageProvider,
-  type HomePageProps,
-} from "shared/components/pages/HomePage";
+import { Fragment } from "react";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
 import { createContentstackClient } from "../src/contentstackClient";
 import { contentstackParams } from "../src/contentstackParams";
 import { shopstoryConfig } from "../src/shopstory/config";
 import { DemoShopstoryProvider } from "../src/shopstory/provider";
 import { isQueryLivePreviewQuery } from "../src/utils/isQueryLivePreviewQuery";
 
-const HomePage = homePageProvider({
-  beforeContent: (
-    <Head>
-      <title>Demo store.</title>
-    </Head>
-  ),
-  ShopstoryProvider: DemoShopstoryProvider,
-});
+type HomePageProps = {
+  content: RenderableContent;
+  meta: Metadata;
+};
+
+function HomePage(props: HomePageProps) {
+  return (
+    <Fragment>
+      <Head>
+        <title>Demo store.</title>
+      </Head>
+
+      <PageWrapper>
+        <DemoShopstoryProvider>
+          <ShopstoryMetadataProvider meta={props.meta}>
+            <Shopstory content={props.content} />
+          </ShopstoryMetadataProvider>
+        </DemoShopstoryProvider>
+      </PageWrapper>
+    </Fragment>
+  );
+}
 
 export default HomePage;
 

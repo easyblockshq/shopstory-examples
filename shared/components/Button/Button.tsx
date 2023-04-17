@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Button.module.css";
-import { ShopstoryButton } from "@shopstory/react";
+import type { ShopstoryButton } from "@shopstory/react";
 
 type ButtonProps = {
   appearance?:

@@ -1,27 +1,60 @@
-import { ShopstoryClient } from "@shopstory/core";
-import type { GetServerSideProps, NextPage } from "next";
+import { Metadata, RenderableContent, ShopstoryClient } from "@shopstory/core";
+import { ShopstoryGrid, ShopstoryMetadataProvider } from "@shopstory/react";
+import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import {
-  categoryPageProvider,
-  type CategoryPageProps,
-} from "shared/components/pages/CategoryPage";
+import { Fragment } from "react";
+import ProductListing from "shared/components/sections/ProductListing/ProductListing";
 import fetchCollectionByHandle from "shared/data/shopify/fetchCollectionByHandle";
 import { filterCollection } from "shared/data/shopify/filterCollection";
+import { PLPProps } from "shared/types";
 import { decomposeHandle } from "shared/utils/collectionsHandle";
 import { createContentstackClient } from "../../src/contentstackClient";
 import { contentstackParams } from "../../src/contentstackParams";
 import { shopstoryConfig } from "../../src/shopstory/config";
 import { DemoShopstoryProvider } from "../../src/shopstory/provider";
 import { isQueryLivePreviewQuery } from "../../src/utils/isQueryLivePreviewQuery";
+import { ProductCard } from "shared/components/ProductCard/ProductCard";
 
-const CategoryPage: NextPage<CategoryPageProps> = categoryPageProvider({
-  renderBeforeContent: ({ title }) => (
-    <Head>
-      <title>{title}</title>
-    </Head>
-  ),
-  ShopstoryProvider: DemoShopstoryProvider,
-});
+type CategoryPageProps = Omit<PLPProps, "gridContent"> & {
+  renderableContent: RenderableContent;
+  meta: Metadata;
+};
+
+function CategoryPage({
+  meta,
+  renderableContent,
+  ...props
+}: CategoryPageProps) {
+  const productCards = props.collection
+    ? props.collection.products.map((product, i) => (
+        <ProductCard
+          product={product}
+          relatedProductsMode={"onHover"}
+          withBackdrop={true}
+          key={i}
+        />
+      ))
+    : [];
+
+  return (
+    <Fragment>
+      <Head>
+        <title>{props.collection.title}</title>
+      </Head>
+      <ProductListing
+        key={props.collection.handle}
+        gridContent={
+          <DemoShopstoryProvider>
+            <ShopstoryMetadataProvider meta={meta}>
+              <ShopstoryGrid cards={productCards} content={renderableContent} />
+            </ShopstoryMetadataProvider>
+          </DemoShopstoryProvider>
+        }
+        {...props}
+      />
+    </Fragment>
+  );
+}
 
 export const getServerSideProps: GetServerSideProps<
   CategoryPageProps

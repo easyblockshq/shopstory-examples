@@ -1,21 +1,29 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import {
-  productPageProvider,
-  type ProductPageProps,
-} from "shared/components/pages/ProductPage";
+import { Fragment } from "react";
+import ProductDetails from "shared/components/sections/ProductDetails/ProductDetails";
 import fetchAllProductHandles from "shared/data/shopify/fetchAllProductHandles";
 import fetchProductByHandle from "shared/data/shopify/fetchProductByHandle";
-import type { Path } from "shared/types";
+import type { Path, ShopifyProduct } from "shared/types";
 
-const ProductPage = productPageProvider({
-  renderBeforeContent: ({ title }) => (
-    <Head>
-      <title>{title}</title>
-    </Head>
-  ),
-});
+type ProductPageProps = {
+  product: ShopifyProduct;
+};
 
+function ProductPage(props: ProductPageProps) {
+  if (!props.product) {
+    return null;
+  }
+
+  return (
+    <Fragment>
+      <Head>
+        <title>{props.product.title}</title>
+      </Head>
+      <ProductDetails product={props.product} />
+    </Fragment>
+  );
+}
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: Path[] = [];
 
@@ -32,6 +40,7 @@ export const getStaticProps: GetStaticProps<ProductPageProps> = async ({
 }) => {
   if (!params?.handle)
     throw new Error("Catch all accessed without given [handle]");
+
   if (typeof params.handle !== "string")
     throw new Error("Catch all accessed with wrong type of [handle]");
 

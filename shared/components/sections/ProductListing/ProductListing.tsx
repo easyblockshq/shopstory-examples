@@ -7,7 +7,6 @@ import {
   PLPProps,
   CollectionFilterValues,
 } from "../../../types";
-import { ProductCard } from "../../ProductCard/ProductCard";
 import Router, { useRouter } from "next/router";
 import { buildHandle, decomposeHandle } from "../../../utils/collectionsHandle";
 import { Modal } from "../../Modal/Modal";
@@ -20,7 +19,6 @@ import { ToggleButton } from "../../ToggleButton/ToggleButton";
 import { ToggleColorButton } from "../../ToggleColorButton/ToggleColorButton";
 import { ToggleRadioButton } from "../../ToggleRadioButton/ToggleRadioButton";
 import CloseIcon from "../../icons/CloseIcon";
-import { ShopstoryGrid } from "@shopstory/react";
 import Link from "next/link";
 
 const getActiveFiltersCount = (activeFilters: any) => {
@@ -35,7 +33,7 @@ const getActiveFiltersCount = (activeFilters: any) => {
   return counter;
 };
 
-const ProductListing: FC<PLPProps> = ({ ShopstoryProvider, ...props }) => {
+const ProductListing: FC<PLPProps> = ({ gridContent, ...props }) => {
   const router = useRouter();
   const { query } = router;
   const isFirstRender = useRef(true);
@@ -125,17 +123,6 @@ const ProductListing: FC<PLPProps> = ({ ShopstoryProvider, ...props }) => {
     return filterValue === optionId;
   };
 
-  const productCards = collection
-    ? collection.products.map((product, i) => (
-        <ProductCard
-          product={product}
-          relatedProductsMode={"onHover"}
-          withBackdrop={true}
-          key={i}
-        />
-      ))
-    : [];
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -159,15 +146,7 @@ const ProductListing: FC<PLPProps> = ({ ShopstoryProvider, ...props }) => {
         </div>
       </div>
 
-      <div className={styles.productGrid}>
-        <ShopstoryProvider>
-          <ShopstoryGrid
-            cards={productCards}
-            content={props.renderableContent}
-            meta={props.meta}
-          />
-        </ShopstoryProvider>
-      </div>
+      <div className={styles.productGrid}>{gridContent}</div>
 
       <Modal
         isOpen={isFilterModalOpen}

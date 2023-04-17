@@ -90,9 +90,7 @@ export type PLPProps = {
     max: number;
   };
   numberOfItems: number;
-  ShopstoryProvider: ComponentType<{ children: ReactNode }>;
-  renderableContent: RenderableContent;
-  meta: Metadata;
+  gridContent: ReactNode;
 };
 
 export type ImageObject = {
