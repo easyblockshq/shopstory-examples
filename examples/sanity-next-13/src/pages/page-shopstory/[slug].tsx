@@ -7,6 +7,7 @@ import sanityConfig from "../../sanity/sanity.config";
 import { shopstoryConfig } from "../../shopstory/config";
 import { DemoShopstoryProvider } from "../../shopstory/provider";
 import { previewFilter } from "../../sanity/utils";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
 
 type PageShopstoryProps = {
   title: string;
@@ -20,7 +21,7 @@ export default function PageShopstory({
   meta,
 }: PageShopstoryProps) {
   return (
-    <div>
+    <PageWrapper>
       <Head>
         <title>{title}</title>
       </Head>
@@ -29,7 +30,7 @@ export default function PageShopstory({
           <Shopstory content={renderableContent} />
         </ShopstoryMetadataProvider>
       </DemoShopstoryProvider>
-    </div>
+    </PageWrapper>
   );
 }
 

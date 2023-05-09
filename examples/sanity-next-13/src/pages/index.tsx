@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
-import { WelcomSection } from "shared/components/sections/WelcomeSection/WelcomSection";
+import { WelcomeSection } from "shared/components/sections/WelcomeSection/WelcomeSection";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
 
 const Home: NextPage = () => {
-  return <WelcomSection>
-    Welcome to Shopstory + Sanity demo!
-  </WelcomSection>
+  return (
+    <PageWrapper>
+      <WelcomeSection>Welcome to Shopstory + Sanity demo!</WelcomeSection>
+    </PageWrapper>
+  );
 };
 
 export default Home;

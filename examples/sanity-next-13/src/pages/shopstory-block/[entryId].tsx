@@ -5,6 +5,7 @@ import { createClient } from "next-sanity";
 import sanityConfig from "../../sanity/sanity.config";
 import { shopstoryConfig } from "../../shopstory/config";
 import { DemoShopstoryProvider } from "../../shopstory/provider";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
 
 type ShopstoryBlockPageProps = {
   renderableContent: RenderableContent;
@@ -13,11 +14,13 @@ type ShopstoryBlockPageProps = {
 
 const ShopstoryBlockPage: NextPage<ShopstoryBlockPageProps> = (props) => {
   return (
-    <DemoShopstoryProvider>
-      <ShopstoryMetadataProvider meta={props.meta}>
-        <Shopstory content={props.renderableContent} />
-      </ShopstoryMetadataProvider>
-    </DemoShopstoryProvider>
+    <PageWrapper>
+      <DemoShopstoryProvider>
+        <ShopstoryMetadataProvider meta={props.meta}>
+          <Shopstory content={props.renderableContent} />
+        </ShopstoryMetadataProvider>
+      </DemoShopstoryProvider>
+    </PageWrapper>
   );
 };
 

@@ -14,6 +14,7 @@ import { Metadata, RenderableContent, ShopstoryClient } from "@shopstory/core";
 import { shopstoryConfig } from "../../shopstory/config";
 import { DemoShopstoryProvider } from "../../shopstory/provider";
 import { Shopstory, ShopstoryMetadataProvider } from "@shopstory/react";
+import { PageWrapper } from "shared/components/PageWrapper/PageWrapper";
 
 type PageBlocksProps = {
   title: string;
@@ -42,7 +43,7 @@ type PageBlocksProps = {
 
 export default function PageShopstory({ title, blocks }: PageBlocksProps) {
   return (
-    <Fragment>
+    <PageWrapper>
       <Head>{title}</Head>
       {blocks.map((block, index) => {
         const { type, props } = block;
@@ -72,7 +73,7 @@ export default function PageShopstory({ title, blocks }: PageBlocksProps) {
         // @ts-ignore
         throw new Error(`Unknown block type: ${block.type}`);
       })}
-    </Fragment>
+    </PageWrapper>
   );
 }
 
@@ -105,7 +106,7 @@ export const getStaticProps: GetStaticProps<
     `*[_type == 'pageBlocks' && slug.current == '${params.slug}'
     ${previewFilter(preview)}] | order(_updatedAt desc) [0] {
         title, 
-        blocks[]->{
+        blocks[] {
           _type,
           _type == 'shopstoryBlock' => {
             "content": content.${locale}

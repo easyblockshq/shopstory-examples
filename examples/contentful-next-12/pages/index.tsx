@@ -1,10 +1,8 @@
-import type { NextPage } from 'next'
-import { WelcomSection } from "shared/components/sections/WelcomeSection/WelcomSection";
+import type { NextPage } from "next";
+import { WelcomeSection } from "shared/components/sections/WelcomeSection/WelcomeSection";
 
 const Home: NextPage = () => {
-  return (
-    <WelcomSection>Welcome to Shopstory Demo!</WelcomSection>
-  );
+  return <WelcomeSection>Welcome to Shopstory Demo!</WelcomeSection>;
 };
 
-export default Home
+export default Home;

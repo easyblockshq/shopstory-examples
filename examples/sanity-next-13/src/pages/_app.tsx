@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
-import { MockHeader } from "shared/components/MockHeader/MockHeader";
+import { Header } from "shared/components/Header/Header";
 import { MockFooter } from "shared/components/MockFooter/MockFooter";
-import "shared/styles/globals.css"
+import "shared/styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // @ts-ignore
@@ -13,10 +13,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div>
-      <MockHeader />
-      <div style={{ minHeight: "100vh" }}>
-        <Component {...pageProps} />
-      </div>
+      <Header />
+      <Component {...pageProps} />
       <MockFooter />
     </div>
   );

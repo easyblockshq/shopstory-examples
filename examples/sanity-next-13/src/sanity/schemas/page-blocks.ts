@@ -15,10 +15,10 @@ export default defineType({
       name: "blocks",
       type: "array",
       of: [
-        {
-          type: "reference",
-          to: [banner, twoColumns, productsGrid, shopstoryBlock],
-        },
+        { type: banner.name },
+        { type: twoColumns.name },
+        { type: productsGrid.name },
+        { type: shopstoryBlock.name },
       ],
     }),
   ],

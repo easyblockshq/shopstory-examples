@@ -17,7 +17,8 @@ async function mapBlockDocumentToSectionProps(document: Record<string, any>) {
         ...(document.image && {
           image: {
             src: document.image.asset.url,
-            title: document.image.asset.altText ?? document.image.asset.title,
+            title:
+              document.image.asset.altText ?? document.image.asset.title ?? "",
           },
         }),
       },
