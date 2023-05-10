@@ -3,5 +3,5 @@
   margin-bottom: 64px;
   @mixin container-standard;
   @mixin font-body01;
-  min-height: calc(100vh - 2 * 64px - var(--headerHeight) - 200px);
+  min-height: calc(100vh - 2 * 64px - var(--headerHeight));
 }

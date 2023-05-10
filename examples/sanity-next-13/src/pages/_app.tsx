@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import { Header } from "shared/components/Header/Header";
-import { MockFooter } from "shared/components/MockFooter/MockFooter";
+import { Footer } from "shared/components/Footer/Footer";
 import "shared/styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div>
       <Header />
       <Component {...pageProps} />
-      <MockFooter />
+      <Footer />
     </div>
   );
 }
