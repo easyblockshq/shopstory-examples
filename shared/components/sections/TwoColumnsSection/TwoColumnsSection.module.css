@@ -10,20 +10,18 @@
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  @media (--md) {
-    grid-template-columns: 1fr 1fr;
-  }
-
   grid-gap: 32px;
   position: relative;
   align-items: stretch;
   padding: 96px 0;
+  text-align: center;
 }
 
 .leftContainer {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .leftText {
@@ -36,7 +34,7 @@
   display: flex;
   flex-direction: column;
   /*justify-content: center;*/
-  align-items: flex-start;
+  align-items: center;
 }
 
 .rightText {
