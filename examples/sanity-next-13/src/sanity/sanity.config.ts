@@ -10,6 +10,7 @@ import {
 } from "sanity/desk";
 import { MissingEnvironmentVariableError } from "shared/utils/MissingEnvironmentVariableError";
 import { schemaTypes } from "./schemas";
+import { languageFilter } from "@sanity/language-filter";
 
 if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
   throw new MissingEnvironmentVariableError("NEXT_PUBLIC_SANITY_PROJECT_ID");
@@ -87,6 +88,21 @@ export default defineConfig({
       assetSource: mediaAssetSource,
     }),
     media(),
+    languageFilter({
+      supportedLanguages: [
+        {
+          id: "en",
+          title: "English",
+        },
+        {
+          id: "de",
+          title: "German",
+        },
+      ],
+      filterField: (_, field, selectedLanguageIds) => {
+        return selectedLanguageIds.includes(field.name);
+      },
+    }),
   ],
 
   schema: {
