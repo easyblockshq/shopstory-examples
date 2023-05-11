@@ -16,9 +16,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@shopstory/contentful": "^1.0.6",
-    "@shopstory/core": "^1.0.6",
-    "@shopstory/react": "^1.0.6",
+    "@shopstory/contentful": "^1.0.7",
+    "@shopstory/core": "^1.0.7",
+    "@shopstory/react": "^1.0.7",
     "contentful": "^9.2.13",
     "gatsby": "4.24.8",
     "gatsby-plugin-image": "2.24.0",
