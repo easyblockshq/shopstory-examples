@@ -1,13 +1,16 @@
+import type { Config } from "@shopstory/core";
 import { Canvas } from "@shopstory/react";
-import type { NextPage } from "next";
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { shopstoryConfig } from "../shopstory/config";
+import { getNoomaTemplates } from "../shopstory/getNoomaTemplates";
 import { DemoShopstoryProvider } from "../shopstory/provider";
-import React from "react";
 
-const ShopstoryCanvasPage: NextPage = () => {
+const ShopstoryCanvasPage: NextPage<
+  InferGetStaticPropsType<typeof getStaticProps>
+> = (props) => {
   return (
     <DemoShopstoryProvider>
-      <Canvas config={shopstoryConfig} />
+      <Canvas config={addTemplates(shopstoryConfig, props.templates)} />
     </DemoShopstoryProvider>
   );
 };
@@ -15,4 +18,41 @@ const ShopstoryCanvasPage: NextPage = () => {
 // @ts-expect-error
 ShopstoryCanvasPage.noHeaderAndFooter = true;
 
+const getStaticProps: GetStaticProps<{
+  templates: Awaited<ReturnType<typeof getNoomaTemplates>>;
+}> = async () => {
+  const templates = await getNoomaTemplates();
+
+  return {
+    props: {
+      templates,
+    },
+  };
+};
+
 export default ShopstoryCanvasPage;
+export { getStaticProps };
+
+function addTemplates(
+  config: Config,
+  templates: InferGetStaticPropsType<typeof getStaticProps>["templates"]
+) {
+  return {
+    ...config,
+    unstable_templates: [
+      ...(config.unstable_templates ?? []),
+      ...templates.cardTemplates?.map((t) => {
+        return {
+          label: t.label,
+          config: t.config,
+        };
+      }),
+      ...templates.sectionTemplates?.map((t) => {
+        return {
+          label: t.label,
+          config: t.config,
+        };
+      }),
+    ],
+  };
+}

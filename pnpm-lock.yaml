@@ -194,6 +194,9 @@ importers:
       '@types/react-dom':
         specifier: 18.2.4
         version: 18.2.4
+      contentful:
+        specifier: ^9.3.5
+        version: 9.3.5
       eslint:
         specifier: 8.40.0
         version: 8.40.0
