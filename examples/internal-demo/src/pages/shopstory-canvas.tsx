@@ -46,6 +46,7 @@ function addTemplates(
           type: "Card",
           label: t.label,
           config: t.config,
+          previewImage: t.previewImageUrl,
         };
       }),
       ...templates.sectionTemplates?.map((t): Template => {
@@ -53,6 +54,7 @@ function addTemplates(
           type: "Section",
           label: t.label,
           config: t.config,
+          previewImage: t.previewImageUrl,
         };
       }),
     ],

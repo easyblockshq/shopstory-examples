@@ -1,9 +1,10 @@
 import { ConfigComponent } from "@shopstory/core";
-import { Entry, createClient } from "contentful";
+import { Asset, Entry, createClient } from "contentful";
 
 type NoomaTemplate = {
   config: ConfigComponent;
   label?: string;
+  previewImageUrl?: string;
 };
 
 async function getNoomaTemplates(): Promise<{
@@ -30,9 +31,11 @@ async function getNoomaTemplates(): Promise<{
   try {
     const noomaDemo = await contentfulClient.getEntries<{
       sectionTemplates?: Array<
-        Entry<{ config: ConfigComponent; label?: string }>
+        Entry<{ config: ConfigComponent; label?: string; thumbnail?: Asset }>
       >;
-      cardTemplates?: Array<Entry<{ config: ConfigComponent; label?: string }>>;
+      cardTemplates?: Array<
+        Entry<{ config: ConfigComponent; label?: string; thumbnail?: Asset }>
+      >;
     }>({
       content_type: "noomaDemo",
       include: 2,
@@ -43,6 +46,7 @@ async function getNoomaTemplates(): Promise<{
         resultTemplates.cardTemplates.push({
           config: cardTemplate.fields.config,
           label: cardTemplate.fields.label,
+          previewImageUrl: cardTemplate.fields.thumbnail?.fields.file.url,
         });
       });
 
@@ -50,6 +54,7 @@ async function getNoomaTemplates(): Promise<{
         resultTemplates.sectionTemplates.push({
           config: sectionTemplate.fields.config,
           label: sectionTemplate.fields.label,
+          previewImageUrl: sectionTemplate.fields.thumbnail?.fields.file.url,
         });
       });
     });
