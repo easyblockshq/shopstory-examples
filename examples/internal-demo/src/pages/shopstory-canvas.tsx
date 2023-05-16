@@ -1,4 +1,4 @@
-import type { Config } from "@shopstory/core";
+import type { Config, Template } from "@shopstory/core";
 import { Canvas } from "@shopstory/react";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { shopstoryConfig } from "../shopstory/config";
@@ -41,14 +41,16 @@ function addTemplates(
     ...config,
     unstable_templates: [
       ...(config.unstable_templates ?? []),
-      ...templates.cardTemplates?.map((t) => {
+      ...templates.cardTemplates?.map((t): Template => {
         return {
+          type: "Card",
           label: t.label,
           config: t.config,
         };
       }),
-      ...templates.sectionTemplates?.map((t) => {
+      ...templates.sectionTemplates?.map((t): Template => {
         return {
+          type: "Section",
           label: t.label,
           config: t.config,
         };
