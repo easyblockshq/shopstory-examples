@@ -1,12 +1,16 @@
 import type { Config, Template } from "@shopstory/core";
 import { Canvas } from "@shopstory/react";
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import { shopstoryConfig } from "../shopstory/config";
 import { getNoomaTemplates } from "../shopstory/getNoomaTemplates";
 import { DemoShopstoryProvider } from "../shopstory/provider";
 
 const ShopstoryCanvasPage: NextPage<
-  InferGetStaticPropsType<typeof getStaticProps>
+  InferGetServerSidePropsType<typeof getServerSideProps>
 > = (props) => {
   return (
     <DemoShopstoryProvider>
@@ -18,7 +22,7 @@ const ShopstoryCanvasPage: NextPage<
 // @ts-expect-error
 ShopstoryCanvasPage.noHeaderAndFooter = true;
 
-const getStaticProps: GetStaticProps<{
+const getServerSideProps: GetServerSideProps<{
   templates: Awaited<ReturnType<typeof getNoomaTemplates>>;
 }> = async () => {
   const templates = await getNoomaTemplates();
@@ -31,11 +35,11 @@ const getStaticProps: GetStaticProps<{
 };
 
 export default ShopstoryCanvasPage;
-export { getStaticProps };
+export { getServerSideProps };
 
 function addTemplates(
   config: Config,
-  templates: InferGetStaticPropsType<typeof getStaticProps>["templates"]
+  templates: InferGetServerSidePropsType<typeof getServerSideProps>["templates"]
 ) {
   return {
     ...config,
