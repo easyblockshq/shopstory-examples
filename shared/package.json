@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@shopstory/core": "^1.0.7",
-    "@shopstory/react": "^1.0.7",
+    "@shopstory/core": "^1.0.9",
+    "@shopstory/react": "^1.0.9",
     "next": "12.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
