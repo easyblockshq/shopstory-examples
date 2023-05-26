@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@shopstory/core": "^1.0.9",
-    "@shopstory/nocms": "^1.0.9",
-    "@shopstory/react": "^1.0.9",
+    "@shopstory/core": "^1.1.0",
+    "@shopstory/nocms": "^1.1.0",
+    "@shopstory/react": "^1.1.0",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",

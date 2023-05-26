@@ -1,0 +1,33 @@
+{
+  "name": "sanity-next-13-app-router",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/language-filter": "^3.0.1",
+    "@sanity/vision": "^3.11.2",
+    "@shopstory/core": "^1.1.0",
+    "@shopstory/react": "^1.1.0",
+    "@shopstory/sanity": "^1.1.0",
+    "@types/node": "20.2.3",
+    "@types/react": "18.2.7",
+    "@types/react-dom": "18.2.4",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "next": "13.4.3",
+    "next-sanity": "^4.3.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sanity": "^3.11.2",
+    "sanity-plugin-iframe-pane": "^2.3.1",
+    "sanity-plugin-media": "^2.0.5",
+    "styled-components": "^5.3.11",
+    "typescript": "5.0.4",
+    "shared": "link:../../shared"
+  }
+}
