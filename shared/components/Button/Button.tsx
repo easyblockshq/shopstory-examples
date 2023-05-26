@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Button.module.css";
 import type { ShopstoryButton } from "@shopstory/react";
 
@@ -14,7 +14,7 @@ type ButtonProps = {
   size?: "standard" | "small" | "medium";
 };
 
-export const Button: ShopstoryButton<ButtonProps> = (props) => {
+export const Button: ShopstoryButton<ButtonProps> = forwardRef((props, ref) => {
   const {
     children,
     as,
@@ -50,7 +50,7 @@ export const Button: ShopstoryButton<ButtonProps> = (props) => {
 
   return React.createElement(
     tag,
-    { ...restProps, className: classes.join(" ") },
+    { ...restProps, className: classes.join(" "), ref },
     label ?? children
   );
-};
+});

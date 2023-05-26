@@ -4,11 +4,9 @@ import styles from "./header.module.css";
 import Link from "next/link";
 import { ToastPortal } from "../Toast/ToastPortal";
 import { Toast } from "../Toast/Toast";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Header = () => {
-  const router = useRouter();
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
   const [isToastActive, setIsToastActive] = useState(false);
   const [isToastVisible, setIsToastVisible] = useState(false);
@@ -48,16 +46,6 @@ const Header = () => {
       setIsToastVisible(true);
     }
   };
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      if (isMobileNavOpen) setMobileNavOpen(false);
-    };
-    router.events.on("routeChangeStart", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, [isMobileNavOpen, router.events]);
 
   return (
     <>

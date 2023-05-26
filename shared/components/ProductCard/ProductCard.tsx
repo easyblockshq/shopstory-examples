@@ -66,7 +66,7 @@ const ProductCard: FC<{
                       relatedProduct.color?.length > 0
                     ) {
                       return (
-                        <span className={relatedLinkClasses.join(" ")}>
+                        <span className={relatedLinkClasses.join(" ")} key={i}>
                           {relatedProduct.primaryImage ? (
                             <Media
                               media={relatedProduct.primaryImage}
