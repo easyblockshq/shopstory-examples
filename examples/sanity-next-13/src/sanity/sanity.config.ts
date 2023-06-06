@@ -89,6 +89,7 @@ export default defineConfig({
     }),
     media(),
     languageFilter({
+      documentTypes: ["pageShopstory"],
       supportedLanguages: [
         {
           id: "en",
