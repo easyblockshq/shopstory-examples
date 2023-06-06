@@ -100,8 +100,12 @@ export default defineConfig({
           title: "German",
         },
       ],
-      filterField: (_, field, selectedLanguageIds) => {
-        return selectedLanguageIds.includes(field.name);
+      filterField: (schema, field, selectedLanguageIds) => {
+        return (
+          schema.name !== "shopstory" ||
+          (schema.name === "shopstory" &&
+            selectedLanguageIds.includes(field.name))
+        );
       },
     }),
   ],
