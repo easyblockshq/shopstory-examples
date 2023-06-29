@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ["shared"],
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ["images.ctfassets.net", "gveekliishdkkfnppfpt.supabase.co"],
   },
 };
 
