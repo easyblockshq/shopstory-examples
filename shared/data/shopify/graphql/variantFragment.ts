@@ -5,7 +5,6 @@ export const VariantFragment = gql`
     availableForSale
     id
     title
-    price
     quantityAvailable
     currentlyNotInStock
     selectedOptions {
